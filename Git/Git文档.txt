@@ -1,0 +1,141 @@
+https://github.com/tj
+在根目录：
+git init   初始化一个本地git仓库
+git status  查看本地仓库变更状态
+git add  将一个没有被跟踪的文件添加到跟踪列表
+mkdir .aaa
+.gitignore下面的 /dist  只就根目录下的dist  才被忽略   src下面的不忽略
+git add .   ===  git add --all    添加跟踪所有，出去要被忽略的
+git status -s  //  -s  是输出简要的变更日志
+git commit   将本地的变化提交的本地的仓库文件夹归档
+git commit -m '第一次提交代码到仓库'
+git diff  /// different
+git log
+git reset --hard 2d2250  强制回到前面的状态     2d2250为commit的前面6位哈希值  就是 回到这个版本
+git push -u origin master   //推送到远程端的主分支master上
+git pull origin master   //从远程啦回程序
+git branch  查看当前版本库分支
+git branch v2  创建v2分支从master来的
+git checkout v2  切换到v2这个分支
+git push -u origin v2   //推送到远程端的v2分支上
+
+
+
+部署网站到github
+
+github：
+创建项目比如wjs   得到https://github.com/Airubby/wjs.git
+
+本地：
+git init
+git add --all
+git add index.html
+git commit -m 'initial commit' 
+git remote add origin https://github.com/Airubby/wjs.git    //如果是其他账号得配置成你的账号
+git push -u origin master
+git branch gh-pages     //gh-pages为固定名字
+git checkout gh-pages
+git push -u origin gh-pages
+
+项目地址： airubby.github.io/wjs
+如果用自己的域名解析到这个上面，还得在根目录添加 CNAME 文件   内容为域名wjs.smallx.top
+如果github上创建的项目名称为airubby.github.io  这样 master也可以被预览
+
+git config --global user.name "B"
+git config --global user.email "D"
+git config --list  //查看config
+
+网址：hexo.io
+安装：npm install hexo-cli -g              npm install -g hexo-cli   
+使用：hexo init blog    //在根目录添加了一个blog文件夹  
+
+
+git log 查看提交的历史  查看等多按enter 退出 按 q
+
+git diff   工作区和暂存区的不同
+git diff --cached  暂存区和版本库的不同
+git diff master  工作区和版本库的不同   master为版本库名称
+git reset HEAD drag.js   //将drag.js从暂存区撤销回工作区
+git checkout --drag.js  //将版本库的文件撤销回工作区
+git commit -m "change2 drag.js and demo.html" --amend  //加上--amend就是将上次提交到版本库的撤回暂存区和这次暂存区要提交的一起提交
+
+删除：
+git rm test.txt  //工作区没有这个文件了，暂存区还有，删除暂存区的这个test.txt文件如果工作区还有这样删不掉
+git rm -f test.txt  //会同时删除暂存区和工作区
+git rm -cached test.txt  //只会删除暂存区的，不会删除工作区的
+
+恢复：
+git checkout a5e425 drag.js   //恢复drag.js文件到工作区a5e425为commit id
+git reset --hard er322r   //恢复整个版本到工作区
+
+git reflog  查看记录
+
+
+
+git clone https://github.com/Airubby/drag.git  克隆下载
+
+
+冲突解决
+git fetch  // 拉去下来
+git diff master origin/master  //查看区别
+git merge origin/master  //合并冲突   然后在代码中取舍自己需要的
+
+git commit -a -m "commit"
+git push origin master   //提交到远端
+
+
+git pull  // 远端的直接就合并到本地分支上了
+
+开源项目的协作 1.fork  2.pull request
+
+
+git branch 查看分支
+git branch new1  //创建new1分支
+git checkout new1 切换到new1分支
+git checkout -b new2  创建new2分支并切换到new2上
+
+在主分支上：git merge new1  将new1合并到主分支上
+git branch --merged  //查看主分支下合并过的分支
+git branch --no-merged  //查看没有和主分支合并的分支
+
+git branch -d new1  删除new1分支  new1合并后，所以可以删除，如果没有合并是删不掉的
+git branch -D new2  没有合并的new2也可以被删除用-D
+
+冲突解决，然后git commit -a -m "commit"
+
+将分支提交到github上：本地创建commit后  git push origin new1 也可以在github网站上创建分支
+
+git tab  查看标签
+打标签 git tab v1.0 
+同步到github上   git push origin v1.0   
+
+
+github上创建组织
+
+
+创建博客   创库名称： Airubby.github.io
+
+资源：http://git.oschina.net/progit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+gist.github.com
+
+
+
+
+
+
+
