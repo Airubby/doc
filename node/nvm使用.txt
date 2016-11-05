@@ -1,0 +1,53 @@
+nvm使用：
+
+settings.txt 中为：
+root: D:\dev\nvm
+path: D:\dev\nodejs
+arch: 64 
+proxy: none
+
+环境配置:
+NVM_HOME:D:\softwear\dev\nvm
+NVM_SYMLINK:D:\softwear\dev\nodejs
+
+
+不行的话，运行install.cmd  然后将D:\dev\nvm这个路径粘贴enter    
+
+nvm list
+nvm install 6.9.1  安装
+nvm use 6.9.1
+
+
+
+
+
+
+
+
+
+npm全局工具问题：
+
+假如在4.3.2版本的node中安装了http-server工具，切换到5.7.0就无法用了。下面解决npm全局工具问题
+
+
+第一步： 修改npm的全局安装路径  
+npm是在nvm下面新建的文件夹
+npm config set prefix "D:\softwear\dev\nvm\npm"
+
+第二步：把D:\softwear\dev\nvm\npm添加到环境变量中
+NPM_HOME    D:\softwear\dev\nvm\npm
+path中%NPM_HOME%
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+1.安装好node之后打开cmd 输入 npm install anywhere -g  安装anywhere ，然后等待直到出现以下界面。
+2.在cmd页面 找到你想搭建服务器的路径，然后再当前路径下输入： anywhere 8860
+比如在e盘下的NodeWeb路径
+	1.在cmd中输入E:  按enter   出现E:\>
+	2.cd NodeWeb   出现E:NodeWeb\>
+	3.anywhere 8860    出现Running at http://192.168.56.1:8860
+
+
+在NodeWeb  新建个server.js
+var http = require("http"); 
+ 
+http.createServer(function(request, response) { 
+ 
+    response.writeHead(200, {"Content-Type": "text/plain"}); 
+ 
+    response.write("Hello World"); 
+ 
+    response.end(); 
+ 
+}).listen(8888);
+
+然后 cd到NodeWeb   执行 node server.js     就可以在浏览器127.0.0.1:8888看到hello world了
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
