@@ -1,4 +1,5 @@
 https://github.com/tj
+在github上新建文件夹home和文件test.md:    home/test.md
 在根目录：
 git init   初始化一个本地git仓库
 git status  查看本地仓库变更状态
