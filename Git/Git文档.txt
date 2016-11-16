@@ -1,134 +1,121 @@
 https://github.com/tj
-ÔÚ¸ùÄ¿Â¼£º
-git init   ³õÊ¼»¯Ò»¸ö±¾µØgit²Ö¿â
-git status  ²é¿´±¾µØ²Ö¿â±ä¸ü×´Ì¬
-git add  ½«Ò»¸öÃ»ÓĞ±»¸ú×ÙµÄÎÄ¼şÌí¼Óµ½¸ú×ÙÁĞ±í
+åœ¨æ ¹ç›®å½•ï¼š
+git init   åˆå§‹åŒ–ä¸€ä¸ªæœ¬åœ°gitä»“åº“
+git status  æŸ¥çœ‹æœ¬åœ°ä»“åº“å˜æ›´çŠ¶æ€
+git add  å°†ä¸€ä¸ªæ²¡æœ‰è¢«è·Ÿè¸ªçš„æ–‡ä»¶æ·»åŠ åˆ°è·Ÿè¸ªåˆ—è¡¨
 mkdir .aaa
-.gitignoreÏÂÃæµÄ /dist  Ö»¾Í¸ùÄ¿Â¼ÏÂµÄdist  ²Å±»ºöÂÔ   srcÏÂÃæµÄ²»ºöÂÔ
-git add .   ===  git add --all    Ìí¼Ó¸ú×ÙËùÓĞ£¬³öÈ¥Òª±»ºöÂÔµÄ
-git status -s  //  -s  ÊÇÊä³ö¼òÒªµÄ±ä¸üÈÕÖ¾
-git commit   ½«±¾µØµÄ±ä»¯Ìá½»µÄ±¾µØµÄ²Ö¿âÎÄ¼ş¼Ğ¹éµµ
-git commit -m 'µÚÒ»´ÎÌá½»´úÂëµ½²Ö¿â'
+.gitignoreä¸‹é¢çš„ /dist  åªå°±æ ¹ç›®å½•ä¸‹çš„dist  æ‰è¢«å¿½ç•¥   srcä¸‹é¢çš„ä¸å¿½ç•¥
+git add .   ===  git add --all    æ·»åŠ è·Ÿè¸ªæ‰€æœ‰ï¼Œå‡ºå»è¦è¢«å¿½ç•¥çš„
+git status -s  //  -s  æ˜¯è¾“å‡ºç®€è¦çš„å˜æ›´æ—¥å¿—
+git commit   å°†æœ¬åœ°çš„å˜åŒ–æäº¤çš„æœ¬åœ°çš„ä»“åº“æ–‡ä»¶å¤¹å½’æ¡£
+git commit -m 'ç¬¬ä¸€æ¬¡æäº¤ä»£ç åˆ°ä»“åº“'
 git diff  /// different
 git log
-git reset --hard 2d2250  Ç¿ÖÆ»Øµ½Ç°ÃæµÄ×´Ì¬     2d2250ÎªcommitµÄÇ°Ãæ6Î»¹şÏ£Öµ  ¾ÍÊÇ »Øµ½Õâ¸ö°æ±¾
-git push -u origin master   //ÍÆËÍµ½Ô¶³Ì¶ËµÄÖ÷·ÖÖ§masterÉÏ
-git pull origin master   //´ÓÔ¶³ÌÀ²»Ø³ÌĞò
-git branch  ²é¿´µ±Ç°°æ±¾¿â·ÖÖ§
-git branch v2  ´´½¨v2·ÖÖ§´ÓmasterÀ´µÄ
-git checkout v2  ÇĞ»»µ½v2Õâ¸ö·ÖÖ§
-git push -u origin v2   //ÍÆËÍµ½Ô¶³Ì¶ËµÄv2·ÖÖ§ÉÏ
+git reset --hard 2d2250  å¼ºåˆ¶å›åˆ°å‰é¢çš„çŠ¶æ€     2d2250ä¸ºcommitçš„å‰é¢6ä½å“ˆå¸Œå€¼  å°±æ˜¯ å›åˆ°è¿™ä¸ªç‰ˆæœ¬
+git push -u origin master   //æ¨é€åˆ°è¿œç¨‹ç«¯çš„ä¸»åˆ†æ”¯masterä¸Š
+git pull origin master   //ä»è¿œç¨‹å•¦å›ç¨‹åº
+git branch  æŸ¥çœ‹å½“å‰ç‰ˆæœ¬åº“åˆ†æ”¯
+git branch v2  åˆ›å»ºv2åˆ†æ”¯ä»masteræ¥çš„
+git checkout v2  åˆ‡æ¢åˆ°v2è¿™ä¸ªåˆ†æ”¯
+git push -u origin v2   //æ¨é€åˆ°è¿œç¨‹ç«¯çš„v2åˆ†æ”¯ä¸Š
 
 
 
-²¿ÊğÍøÕ¾µ½github
+éƒ¨ç½²ç½‘ç«™åˆ°github
 
-github£º
-´´½¨ÏîÄ¿±ÈÈçwjs   µÃµ½https://github.com/Airubby/wjs.git
+githubï¼š
+åˆ›å»ºé¡¹ç›®æ¯”å¦‚wjs   å¾—åˆ°https://github.com/Airubby/wjs.git
 
-±¾µØ£º
+æœ¬åœ°ï¼š
 git init
 git add --all
 git add index.html
 git commit -m 'initial commit' 
-git remote add origin https://github.com/Airubby/wjs.git    //Èç¹ûÊÇÆäËûÕËºÅµÃÅäÖÃ³ÉÄãµÄÕËºÅ
+git remote add origin https://github.com/Airubby/wjs.git    //å¦‚æœæ˜¯å…¶ä»–è´¦å·å¾—é…ç½®æˆä½ çš„è´¦å·
 git push -u origin master
-git branch gh-pages     //gh-pagesÎª¹Ì¶¨Ãû×Ö
+git branch gh-pages     //gh-pagesä¸ºå›ºå®šåå­—
 git checkout gh-pages
 git push -u origin gh-pages
 
-ÏîÄ¿µØÖ·£º airubby.github.io/wjs
-Èç¹ûÓÃ×Ô¼ºµÄÓòÃû½âÎöµ½Õâ¸öÉÏÃæ£¬»¹µÃÔÚ¸ùÄ¿Â¼Ìí¼Ó CNAME ÎÄ¼ş   ÄÚÈİÎªÓòÃûwjs.smallx.top
-Èç¹ûgithubÉÏ´´½¨µÄÏîÄ¿Ãû³ÆÎªairubby.github.io  ÕâÑù masterÒ²¿ÉÒÔ±»Ô¤ÀÀ
+é¡¹ç›®åœ°å€ï¼š airubby.github.io/wjs
+å¦‚æœç”¨è‡ªå·±çš„åŸŸåè§£æåˆ°è¿™ä¸ªä¸Šé¢ï¼Œè¿˜å¾—åœ¨æ ¹ç›®å½•æ·»åŠ  CNAME æ–‡ä»¶   å†…å®¹ä¸ºåŸŸåwjs.smallx.top
+å¦‚æœgithubä¸Šåˆ›å»ºçš„é¡¹ç›®åç§°ä¸ºairubby.github.io  è¿™æ · masterä¹Ÿå¯ä»¥è¢«é¢„è§ˆ
 
 git config --global user.name "B"
 git config --global user.email "D"
-git config --list  //²é¿´config
+git config --list  //æŸ¥çœ‹config
 
-ÍøÖ·£ºhexo.io
-°²×°£ºnpm install hexo-cli -g              npm install -g hexo-cli   
-Ê¹ÓÃ£ºhexo init blog    //ÔÚ¸ùÄ¿Â¼Ìí¼ÓÁËÒ»¸öblogÎÄ¼ş¼Ğ  
-
-
-git log ²é¿´Ìá½»µÄÀúÊ·  ²é¿´µÈ¶à°´enter ÍË³ö °´ q
-
-git diff   ¹¤×÷ÇøºÍÔİ´æÇøµÄ²»Í¬
-git diff --cached  Ôİ´æÇøºÍ°æ±¾¿âµÄ²»Í¬
-git diff master  ¹¤×÷ÇøºÍ°æ±¾¿âµÄ²»Í¬   masterÎª°æ±¾¿âÃû³Æ
-git reset HEAD drag.js   //½«drag.js´ÓÔİ´æÇø³·Ïú»Ø¹¤×÷Çø
-git checkout --drag.js  //½«°æ±¾¿âµÄÎÄ¼ş³·Ïú»Ø¹¤×÷Çø
-git commit -m "change2 drag.js and demo.html" --amend  //¼ÓÉÏ--amend¾ÍÊÇ½«ÉÏ´ÎÌá½»µ½°æ±¾¿âµÄ³·»ØÔİ´æÇøºÍÕâ´ÎÔİ´æÇøÒªÌá½»µÄÒ»ÆğÌá½»
-
-É¾³ı£º
-git rm test.txt  //¹¤×÷ÇøÃ»ÓĞÕâ¸öÎÄ¼şÁË£¬Ôİ´æÇø»¹ÓĞ£¬É¾³ıÔİ´æÇøµÄÕâ¸ötest.txtÎÄ¼şÈç¹û¹¤×÷Çø»¹ÓĞÕâÑùÉ¾²»µô
-git rm -f test.txt  //»áÍ¬Ê±É¾³ıÔİ´æÇøºÍ¹¤×÷Çø
-git rm -cached test.txt  //Ö»»áÉ¾³ıÔİ´æÇøµÄ£¬²»»áÉ¾³ı¹¤×÷ÇøµÄ
-
-»Ö¸´£º
-git checkout a5e425 drag.js   //»Ö¸´drag.jsÎÄ¼şµ½¹¤×÷Çøa5e425Îªcommit id
-git reset --hard er322r   //»Ö¸´Õû¸ö°æ±¾µ½¹¤×÷Çø
-
-git reflog  ²é¿´¼ÇÂ¼
+ç½‘å€ï¼šhexo.io
+å®‰è£…ï¼šnpm install hexo-cli -g              npm install -g hexo-cli   
+ä½¿ç”¨ï¼šhexo init blog    //åœ¨æ ¹ç›®å½•æ·»åŠ äº†ä¸€ä¸ªblogæ–‡ä»¶å¤¹  
 
 
+git log æŸ¥çœ‹æäº¤çš„å†å²  æŸ¥çœ‹æ›´å¤šæŒ‰enter é€€å‡º æŒ‰ q
 
-git clone https://github.com/Airubby/drag.git  ¿ËÂ¡ÏÂÔØ
+git diff   å·¥ä½œåŒºå’Œæš‚å­˜åŒºçš„ä¸åŒ
+git diff --cached  æš‚å­˜åŒºå’Œç‰ˆæœ¬åº“çš„ä¸åŒ
+git diff master  å·¥ä½œåŒºå’Œç‰ˆæœ¬åº“çš„ä¸åŒ   masterä¸ºç‰ˆæœ¬åº“åç§°
+git reset HEAD drag.js   //å°†drag.jsä»æš‚å­˜åŒºæ’¤é”€å›å·¥ä½œåŒº
+git checkout --drag.js  //å°†ç‰ˆæœ¬åº“çš„æ–‡ä»¶æ’¤é”€å›å·¥ä½œåŒº
+git commit -m "change2 drag.js and demo.html" --amend  //åŠ ä¸Š--amendå°±æ˜¯å°†ä¸Šæ¬¡æäº¤åˆ°ç‰ˆæœ¬åº“çš„æ’¤å›æš‚å­˜åŒºå’Œè¿™æ¬¡æš‚å­˜åŒºè¦æäº¤çš„ä¸€èµ·æäº¤
+
+åˆ é™¤ï¼š
+git rm test.txt  //å·¥ä½œåŒºæ²¡æœ‰è¿™ä¸ªæ–‡ä»¶äº†ï¼Œæš‚å­˜åŒºè¿˜æœ‰ï¼Œåˆ é™¤æš‚å­˜åŒºçš„è¿™ä¸ªtest.txtæ–‡ä»¶å¦‚æœå·¥ä½œåŒºè¿˜æœ‰è¿™æ ·åˆ ä¸æ‰
+git rm -f test.txt  //ä¼šåŒæ—¶åˆ é™¤æš‚å­˜åŒºå’Œå·¥ä½œåŒº
+git rm -cached test.txt  //åªä¼šåˆ é™¤æš‚å­˜åŒºçš„ï¼Œä¸ä¼šåˆ é™¤å·¥ä½œåŒºçš„
+
+æ¢å¤ï¼š
+git checkout a5e425 drag.js   //æ¢å¤drag.jsæ–‡ä»¶åˆ°å·¥ä½œåŒºa5e425ä¸ºcommit id
+git reset --hard er322r   //æ¢å¤æ•´ä¸ªç‰ˆæœ¬åˆ°å·¥ä½œåŒº
+
+git reflog  æŸ¥çœ‹è®°å½•
 
 
-³åÍ»½â¾ö
-git fetch  // À­È¥ÏÂÀ´
-git diff master origin/master  //²é¿´Çø±ğ
-git merge origin/master  //ºÏ²¢³åÍ»   È»ºóÔÚ´úÂëÖĞÈ¡Éá×Ô¼ºĞèÒªµÄ
+
+git clone https://github.com/Airubby/drag.git name  å…‹éš†ä¸‹è½½nameä¸ºæ–‡ä»¶å¤¹çš„åå­—
+
+
+å†²çªè§£å†³
+git fetch  // æ‹‰å»ä¸‹æ¥
+git diff master origin/master  //æŸ¥çœ‹åŒºåˆ«
+git merge origin/master  //åˆå¹¶å†²çª   ç„¶ååœ¨ä»£ç ä¸­å–èˆè‡ªå·±éœ€è¦çš„
 
 git commit -a -m "commit"
-git push origin master   //Ìá½»µ½Ô¶¶Ë
+git push origin master   //æäº¤åˆ°è¿œç«¯
 
 
-git pull  // Ô¶¶ËµÄÖ±½Ó¾ÍºÏ²¢µ½±¾µØ·ÖÖ§ÉÏÁË
+git pull  // è¿œç«¯çš„ç›´æ¥å°±åˆå¹¶åˆ°æœ¬åœ°åˆ†æ”¯ä¸Šäº†
 
-¿ªÔ´ÏîÄ¿µÄĞ­×÷ 1.fork  2.pull request
-
-
-git branch ²é¿´·ÖÖ§
-git branch new1  //´´½¨new1·ÖÖ§
-git checkout new1 ÇĞ»»µ½new1·ÖÖ§
-git checkout -b new2  ´´½¨new2·ÖÖ§²¢ÇĞ»»µ½new2ÉÏ
-
-ÔÚÖ÷·ÖÖ§ÉÏ£ºgit merge new1  ½«new1ºÏ²¢µ½Ö÷·ÖÖ§ÉÏ
-git branch --merged  //²é¿´Ö÷·ÖÖ§ÏÂºÏ²¢¹ıµÄ·ÖÖ§
-git branch --no-merged  //²é¿´Ã»ÓĞºÍÖ÷·ÖÖ§ºÏ²¢µÄ·ÖÖ§
-
-git branch -d new1  É¾³ınew1·ÖÖ§  new1ºÏ²¢ºó£¬ËùÒÔ¿ÉÒÔÉ¾³ı£¬Èç¹ûÃ»ÓĞºÏ²¢ÊÇÉ¾²»µôµÄ
-git branch -D new2  Ã»ÓĞºÏ²¢µÄnew2Ò²¿ÉÒÔ±»É¾³ıÓÃ-D
-
-³åÍ»½â¾ö£¬È»ºógit commit -a -m "commit"
-
-½«·ÖÖ§Ìá½»µ½githubÉÏ£º±¾µØ´´½¨commitºó  git push origin new1 Ò²¿ÉÒÔÔÚgithubÍøÕ¾ÉÏ´´½¨·ÖÖ§
-
-git tab  ²é¿´±êÇ©
-´ò±êÇ© git tab v1.0 
-Í¬²½µ½githubÉÏ   git push origin v1.0   
+å¼€æºé¡¹ç›®çš„åä½œ 1.fork  2.pull request
 
 
-githubÉÏ´´½¨×éÖ¯
+git branch æŸ¥çœ‹åˆ†æ”¯
+git branch new1  //åˆ›å»ºnew1åˆ†æ”¯
+git checkout new1 åˆ‡æ¢åˆ°new1åˆ†æ”¯
+git checkout -b new2  åˆ›å»ºnew2åˆ†æ”¯å¹¶åˆ‡æ¢åˆ°new2ä¸Š
+
+åœ¨ä¸»åˆ†æ”¯ä¸Šï¼šgit merge new1  å°†new1åˆå¹¶åˆ°ä¸»åˆ†æ”¯ä¸Š
+git branch --merged  //æŸ¥çœ‹ä¸»åˆ†æ”¯ä¸‹åˆå¹¶è¿‡çš„åˆ†æ”¯
+git branch --no-merged  //æŸ¥çœ‹æ²¡æœ‰å’Œä¸»åˆ†æ”¯åˆå¹¶çš„åˆ†æ”¯
+
+git branch -d new1  åˆ é™¤new1åˆ†æ”¯  new1åˆå¹¶åï¼Œæ‰€ä»¥å¯ä»¥åˆ é™¤ï¼Œå¦‚æœæ²¡æœ‰åˆå¹¶æ˜¯åˆ ä¸æ‰çš„
+git branch -D new2  æ²¡æœ‰åˆå¹¶çš„new2ä¹Ÿå¯ä»¥è¢«åˆ é™¤ç”¨-D
+
+å†²çªè§£å†³ï¼Œç„¶ågit commit -a -m "commit"
+
+å°†åˆ†æ”¯æäº¤åˆ°githubä¸Šï¼šæœ¬åœ°åˆ›å»ºcommitå  git push origin new1 ä¹Ÿå¯ä»¥åœ¨githubç½‘ç«™ä¸Šåˆ›å»ºåˆ†æ”¯
+
+git tab  æŸ¥çœ‹æ ‡ç­¾
+æ‰“æ ‡ç­¾ git tab v1.0 
+åŒæ­¥åˆ°githubä¸Š   git push origin v1.0   
 
 
-´´½¨²©¿Í   ´´¿âÃû³Æ£º Airubby.github.io
-
-×ÊÔ´£ºhttp://git.oschina.net/progit
+githubä¸Šåˆ›å»ºç»„ç»‡
 
 
+åˆ›å»ºåšå®¢   åˆ›åº“åç§°ï¼š Airubby.github.io
 
-
-
-
-
-
-
-
-
-
-
+èµ„æºï¼šhttp://git.oschina.net/progit
 
 
 gist.github.com
