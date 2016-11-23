@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css"/>
+		
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.onload=function(){
+				var current = 30;  //当前页
+				var total = 30;  //总共页
+				var show = 7;  //显示几个页
+				var begin = current - Math.floor(show/2);  //正常情况下当前页的最左边的页码
+				begin = begin < 1 ? 1 : begin;
+				var end = begin + show; //正常情况下当前页的最右边的页码
+				if(end>total){
+					end = total + 1;
+					begin = end -show;
+					begin = begin < 1 ? 1 : begin;
+				}
+				var container = document.getElementsByClassName('pagination')[0];
+				var prevElement = document.createElement('li');
+				prevElement.innerHTML='<a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>';
+				if(current==1){
+					prevElement.classList.add('disabled');
+				}
+				container.appendChild(prevElement);
+				for(var i=begin;i<end;i++){
+			        var liElement = document.createElement('li');
+			        liElement.innerHTML = '<a href="#">' + i + '</a>';
+			        if (i == current) {
+			          // 此时是当前页
+			          liElement.classList.add('active');
+			        }
+			        container.appendChild(liElement);
+
+				}
+				var nextElement = document.createElement('li');
+			      nextElement.innerHTML = '<a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>';
+			      if(current == total){
+			        nextElement.classList.add('disabled');
+			      }
+			      container.appendChild(nextElement);
+				
+			}
+		</script>
+		<ul class="pagination"></ul>
+	</body>
+</html>
