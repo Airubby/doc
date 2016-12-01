@@ -1,44 +1,48 @@
-nvmÊ¹ÓÃ£º
+nvmä½¿ç”¨ï¼š
 
-settings.txt ÖĞÎª£º
+settings.txt ä¸­ä¸ºï¼š
 root: D:\dev\nvm
 path: D:\dev\nodejs
 arch: 64 
 proxy: none
 
-»·¾³ÅäÖÃ:
+ç¯å¢ƒé…ç½®:
 NVM_HOME:D:\softwear\dev\nvm
 NVM_SYMLINK:D:\softwear\dev\nodejs
 
 
-²»ĞĞµÄ»°£¬ÔËĞĞinstall.cmd  È»ºó½«D:\dev\nvmÕâ¸öÂ·¾¶Õ³Ìùenter    
+ä¸è¡Œçš„è¯ï¼Œè¿è¡Œinstall.cmd  ç„¶åå°†D:\dev\nvmè¿™ä¸ªè·¯å¾„ç²˜è´´enter    
 
 nvm list
-nvm install 6.9.1  °²×°
+nvm install 6.9.1  å®‰è£…
 nvm use 6.9.1
 
 
 
+div env:PATH   æŸ¥çœ‹ç¯å¢ƒå˜é‡é…ç½®
 
 
 
 
 
+npmå…¨å±€å·¥å…·é—®é¢˜ï¼š
 
-npmÈ«¾Ö¹¤¾ßÎÊÌâ£º
-
-¼ÙÈçÔÚ4.3.2°æ±¾µÄnodeÖĞ°²×°ÁËhttp-server¹¤¾ß£¬ÇĞ»»µ½5.7.0¾ÍÎŞ·¨ÓÃÁË¡£ÏÂÃæ½â¾önpmÈ«¾Ö¹¤¾ßÎÊÌâ
+å‡å¦‚åœ¨4.3.2ç‰ˆæœ¬çš„nodeä¸­å®‰è£…äº†http-serverå·¥å…·ï¼Œåˆ‡æ¢åˆ°5.7.0å°±æ— æ³•ç”¨äº†ã€‚ä¸‹é¢è§£å†³npmå…¨å±€å·¥å…·é—®é¢˜
 
 
-µÚÒ»²½£º ĞŞ¸ÄnpmµÄÈ«¾Ö°²×°Â·¾¶  
-npmÊÇÔÚnvmÏÂÃæĞÂ½¨µÄÎÄ¼ş¼Ğ
+ç¬¬ä¸€æ­¥ï¼š ä¿®æ”¹npmçš„å…¨å±€å®‰è£…è·¯å¾„  
+npmæ˜¯åœ¨nvmä¸‹é¢æ–°å»ºçš„æ–‡ä»¶å¤¹
 npm config set prefix "D:\softwear\dev\nvm\npm"
 
-µÚ¶ş²½£º°ÑD:\softwear\dev\nvm\npmÌí¼Óµ½»·¾³±äÁ¿ÖĞ
+ç¬¬äºŒæ­¥ï¼šæŠŠD:\softwear\dev\nvm\npmæ·»åŠ åˆ°ç¯å¢ƒå˜é‡ä¸­
 NPM_HOME    D:\softwear\dev\nvm\npm
-pathÖĞ%NPM_HOME%
+pathä¸­%NPM_HOME%
 
 
+
+å¦‚æœè¦ä¿®æ”¹ç¼“å­˜ä¹Ÿå¯ä»¥    åœ¨nvmä¸‹é¢æ–°å»ºä¸€ä¸ªnpm-cache
+npm config set cache "D:\softwear\dev\nvm\npm-cache"
+ç„¶åæ·»åŠ ç¯å¢ƒå˜é‡ï¼Œä¸€èˆ¬è¿™ä¸ª ä¸ç”¨çš„
 
 
 

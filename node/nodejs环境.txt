@@ -1,12 +1,12 @@
-1.°²×°ºÃnodeÖ®ºó´ò¿ªcmd ÊäÈë npm install anywhere -g  °²×°anywhere £¬È»ºóµÈ´ıÖ±µ½³öÏÖÒÔÏÂ½çÃæ¡£
-2.ÔÚcmdÒ³Ãæ ÕÒµ½ÄãÏë´î½¨·şÎñÆ÷µÄÂ·¾¶£¬È»ºóÔÙµ±Ç°Â·¾¶ÏÂÊäÈë£º anywhere 8860
-±ÈÈçÔÚeÅÌÏÂµÄNodeWebÂ·¾¶
-	1.ÔÚcmdÖĞÊäÈëE:  °´enter   ³öÏÖE:\>
-	2.cd NodeWeb   ³öÏÖE:NodeWeb\>
-	3.anywhere 8860    ³öÏÖRunning at http://192.168.56.1:8860
+1.å®‰è£…å¥½nodeä¹‹åæ‰“å¼€cmd è¾“å…¥ npm install anywhere -g  å®‰è£…anywhere ï¼Œç„¶åç­‰å¾…ç›´åˆ°å‡ºç°ä»¥ä¸‹ç•Œé¢ã€‚
+2.åœ¨cmdé¡µé¢ æ‰¾åˆ°ä½ æƒ³æ­å»ºæœåŠ¡å™¨çš„è·¯å¾„ï¼Œç„¶åå†å½“å‰è·¯å¾„ä¸‹è¾“å…¥ï¼š anywhere 8860
+æ¯”å¦‚åœ¨eç›˜ä¸‹çš„NodeWebè·¯å¾„
+	1.åœ¨cmdä¸­è¾“å…¥E:  æŒ‰enter   å‡ºç°E:\>
+	2.cd NodeWeb   å‡ºç°E:NodeWeb\>
+	3.anywhere 8860    å‡ºç°Running at http://192.168.56.1:8860
 
 
-ÔÚNodeWeb  ĞÂ½¨¸öserver.js
+åœ¨NodeWeb  æ–°å»ºä¸ªserver.js
 var http = require("http"); 
  
 http.createServer(function(request, response) { 
@@ -19,7 +19,7 @@ http.createServer(function(request, response) {
  
 }).listen(8888);
 
-È»ºó cdµ½NodeWeb   Ö´ĞĞ node server.js     ¾Í¿ÉÒÔÔÚä¯ÀÀÆ÷127.0.0.1:8888¿´µ½hello worldÁË
+ç„¶å cdåˆ°NodeWeb   æ‰§è¡Œ node server.js     å°±å¯ä»¥åœ¨æµè§ˆå™¨127.0.0.1:8888çœ‹åˆ°hello worldäº†
 
 
 

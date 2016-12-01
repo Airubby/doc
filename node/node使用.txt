@@ -1,0 +1,12 @@
+进入node环境：node
+退出node命令环境：.exit
+使用严格模式：node --use_strict
+_  下划线为上次执行的返回结果
+
+
+
+安装nrm   nrm为镜像源管理
+npm install -g nrm
+nrm ls  查看
+nrm use taobao   用淘宝的镜像源
+nrm test  查看速度
