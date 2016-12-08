@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        function anchorGoWhere(nav, yangshi, sudu, toubu) {
+            var a = nav + " a";
+            var scrollTop = null;
+            var firstA = $(a).get(0);
+            var firstIDtop = $($(firstA).attr("href")).offset().top;
+            $(a).click(function() {
+                thisID = $(this).attr("href");
+                $("html,body").animate({
+                    scrollTop: $(thisID).offset().top - toubu
+                }, sudu);
+                return false;
+            });
+            $(window).scroll(function() {
+                scrollTop = $(this).scrollTop();
+                $(a).each(function(index) {
+                    if (scrollTop < firstIDtop) {
+                        $(firstA).addClass(yangshi);
+                    } else {
+                        var thisID = $(this).attr("href");
+                        var thisIDtop = $(thisID).offset().top;
+                        var value = scrollTop - thisIDtop;
+                        if (-toubu <= value && value < $(thisID).height()) {
+                            $(a).each(function() {
+                                $(this).removeClass(yangshi);
+                            });
+                            $(this).addClass(yangshi);
+                        }
+                    }
+                });
+            });
+
+        }
+
+        $(document).ready(function() {
+
+            anchorGoWhere("#nav", "current", 500, 40); //40为nav的高度或者距离顶部的高度
+
+        });
+    </script>
+
+
+    <div class="show_box2" id="nav" style="height:40px;position:fixed;">
+        <ul>
+            <li><a href="#show_tese" class="current">行程特色</a></li>
+            <li><a href="#show_anpai">行程安排</a></li>
+            <li><a href="#show_shuo">费用说明</a></li>
+            <li><a href="#show_tishi">温馨提示</a></li>
+        </ul>
+    </div>
+    <div class="show_tese" id="show_tese" style="height: 300px;margin-bottom: 53px;">
+        1
+    </div>
+    <div class="show_anpai" id="show_anpai" style="height: 300px;margin-bottom: 53px;">
+        2
+    </div>
+    <div class="show_shuo" id="show_shuo" style="height: 300px;margin-bottom: 53px;">
+        3
+    </div>
+    <div class="show_tishi" id="show_tishi" style="height: 300px;margin-bottom: 53px;">
+        4
+    </div>
+
+
+
+
+
+
+
+</body>
+
+</html>
