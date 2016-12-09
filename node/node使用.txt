@@ -1,3 +1,9 @@
+
+node开发一般先初始化   npm init;   npm init -y;  全部一起生成
+
+安装指定版本：npm install bootstrap@1.2.3 --save
+
+
 进入node环境：node
 退出node命令环境：.exit
 使用严格模式：node --use_strict
@@ -10,3 +16,14 @@ npm install -g nrm
 nrm ls  查看
 nrm use taobao   用淘宝的镜像源
 nrm test  查看速度
+
+
+
+安装http-server
+npm install -g http-server
+
+运行cmd在项目目录启动web服务
+
+http-server -a 127.0.0.1 -p 8080
+
+ctrl+c  停止server服务
