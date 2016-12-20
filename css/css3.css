@@ -1,0 +1,538 @@
+﻿@charset "utf-8";
+
+/* CSS Document */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+
+bg {
+    /*背景挨着鼠标放上去就有滑动效果  bg:hover*/
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.boxyinying {
+    box-shadow: h-shadow v-shadow blur spread color inset; //偏离x轴，偏离y轴，模糊距离，阴影的尺寸，颜色，内部阴影
+    -webkit-box-shadow: 0px 56px 36px -60px #121D12;
+    -moz-box-shadow: 0px 56px 36px -60px #121D12;
+    -o-box-shadow: 0px 56px 36px -60px #121D12;
+}
+
+a {
+    transition: 0.5s ease;
+     -o-transition: 0.5s ease;
+     -webkit-transition: 0.5s ease; 
+}
+
+
+/*渐变： */
+-webkit-transition: color .2s ease-in;
+transition: color .2s ease-in;
+
+/*线性对称渐变：*/
+ * {
+    height: 55px;
+    background: -webkit-linear-gradient(left, red, orange, red);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(left, red, orange, red);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(left, red, orange, red);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, red, orange, red);
+    /* 标准的语法（必须放在最后） */
+}
+
+/*颜色过渡渐变 */
+.build_banner ul li:hover {
+    animation: build_banner 2s ease-in-out 0.1s infinite;
+    -webkit-animation: build_banner 2s ease-in-out 0.1s infinite;
+    -moz-animation: build_banner 2s ease-in-out 0.1s infinite;
+    -o-animation: build_banner 2s ease-in-out 0.1s infinite;
+    -ms-animation: build_banner 2s ease-in-out 0.1s infinite;
+}
+
+.build_banner ul li:hover div {
+    -webkit-transition: all 0.5s ease-in-out 0.01s;
+    -moz-transition: all 0.5s ease-in-out 0.01s;
+    -o-transition: all 0.5s ease-in-out 0.01s;
+    -ms-transition: all 0.5s ease-in-out 0.01s;
+    transition: all 0.5s ease-in-out 0.01s;
+    background: #000;
+    color: #f60;
+}
+
+/*图片边缘模糊化 */
+<div class="cover"><img src="images/bg.jpg" alt=""></div>
+.cover {
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+    border: 10px ridge #F4E9E0;
+}
+
+/*颜色渐变 */
+#grad {
+    /* Safari 5.1 - 6.0 */
+    background: -webkit-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet);
+    /* Opera 11.1 - 12.0 */
+    background: -o-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet);
+    /* Firefox 3.6 - 15 */
+    background: -moz-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet);
+    /* 标准的语法 */
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+}
+
+
+/*圆点渐隐渐现*/
+<div class="dot"></div>
+.dot{
+	margin: 300px 0 0 500px;
+	width: 20px;
+	height: 20px;
+	border-radius: 100%;
+	opacity: 1;
+	border: 1px solid #fff;
+	background: #fff;
+	border: 1px solid #fff;
+	opacity: 0;
+	-webkit--webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-ms-transition: opacity 1s;
+	-o-transition: opacity 1s;
+	transition: opacity 1s;
+	-webkit-animation: anm0 1s infinite ease-in-out 0s;  
+	-moz-animation: anm0 1s infinite ease-in-out 0s;
+	-ms-animation: anm0 1s infinite ease-in-out 0s;
+	-o-animation: anm0 1s infinite ease-in-out 0s;
+	animation: anm0 1s infinite ease-in-out 0s; //0表示延迟0秒即载入就执行
+}
+@-webkit-keyframes anm0 {
+	0% {
+		-webkit-transform: scale(0);
+	}
+	50% {
+		opacity: .4;
+		-webkit-transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: scale 0;
+	}
+}
+
+/*效果一：360°旋转 修改rotate(旋转度数) 效果演示地址 */
+* {
+    transition: All 0.4s ease-in-out;
+    -webkit-transition: All 0.4s ease-in-out;
+    -moz-transition: All 0.4s ease-in-out;
+    -o-transition: All 0.4s ease-in-out;
+}
+
+*:hover {
+    transform: rotate(360deg);
+    transform: rotateY(360deg); //Y抽旋转      
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+}
+
+/*效果二：放大 修改scale(放大的值) 效果演示地址 */
+* {
+    transition: All 0.4s ease-in-out;
+    -webkit-transition: All 0.4s ease-in-out;
+    -moz-transition: All 0.4s ease-in-out;
+    -o-transition: All 0.4s ease-in-out;
+}
+
+*:hover {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+}
+
+/*效果三：旋转放大 修改rotate(旋转度数) scale(放大值) 效果演示地址*/ 
+* {
+    transition: All 0.4s ease-in-out;
+    -webkit-transition: All 0.4s ease-in-out;
+    -moz-transition: All 0.4s ease-in-out;
+    -o-transition: All 0.4s ease-in-out;
+}
+
+*:hover {
+    transform: rotate(360deg) scale(1.2);
+    -webkit-transform: rotate(360deg) scale(1.2);
+    -moz-transform: rotate(360deg) scale(1.2);
+    -o-transform: rotate(360deg) scale(1.2);
+    -ms-transform: rotate(360deg) scale(1.2);
+    transform-origin
+}
+
+/*效果四：上下左右移动 修改translate(x轴, y轴) 效果演示地址 */
+* {
+    transition: All 0.4s ease-in-out;
+    -webkit-transition: All 0.4s ease-in-out;
+    -moz-transition: All 0.4s ease-in-out;
+    -o-transition: All 0.4s ease-in-out;
+}
+
+*:hover {
+    -webkit-transform: translate(0, -10px);
+    -moz-transform: translate(0, -10px);
+    -o-transform: translate(0, -10px);
+    -ms-transform: translate(0, -10px);
+    transform: translate(0, -10px);
+}
+
+/*效果五：图片变灰*/ 
+*：hover {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}
+
+/*效果六：光左右来回循环 */
+<div class="view_port"><div class="cylon_eye"></div></div>
+.view_port {
+    background-color: black;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.cylon_eye {
+    color: white;
+    height: 100%;
+    width: 20%;
+    background-color: red;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9) 25%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.9) 75%);
+    -webkit-animation: move_eye 4s linear 0s infinite alternate;
+    -moz-animation: move_eye 4s linear 0s infinite alternate;
+    -o-animation: move_eye 4s linear 0s infinite alternate;
+    animation: move_eye 4s linear 0s infinite alternate;
+}
+
+@-webkit-keyframes move_eye {
+    from {
+        margin-left: -20%;
+    }
+    to {
+        margin-left: 100%;
+    }
+}
+
+@-moz-keyframes move_eye {
+    from {
+        margin-left: -20%;
+    }
+    to {
+        margin-left: 100%;
+    }
+}
+
+@-o-keyframes move_eye {
+    from {
+        margin-left: -20%;
+    }
+    to {
+        margin-left: 100%;
+    }
+}
+
+@keyframes move_eye {
+    from {
+        margin-left: -20%;
+    }
+    to {
+        margin-left: 100%;
+    }
+}
+
+/*效果七：循环旋转 */
+<div class="stage-3-icon"></div>
+.stage-3-icon {
+    width: 984px;
+    height: 984px;
+    background: url(images/bg-palette.jpg);
+    -webkit-animation: cycle 8s linear 0.2s infinite normal none; //0.2s是等0.2s才开始执行   8s是循环一圈的时间
+    -moz-animation: cycle 8s linear 0.2s infinite normal none; //动画:动画名称 / 时长 / 运动曲线 / 延迟时间 / 播放次数 / 是否逆向播放 / 播放前或后的状态
+    -ms-animation: cycle 8s linear 0.2s infinite normal none;
+    -o-animation: cycle 8s linear 0.2s infinite normal none;
+    animation: cycle 8s linear 0.2s infinite normal none;
+    transform-origin: 40% 20%; // left  right  center  bottom  top
+}
+
+.stage-3-icon:hover {
+    animation-play-state: paused; //暂停动画
+}
+
+@-webkit-keyframes cycle {
+    0% {
+        -webkit-transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@-moz-keyframes cycle {
+    0% {
+        -moz-transform: rotate(0)
+    }
+    100% {
+        -moz-transform: rotate(360deg)
+    }
+}
+
+@-ms-keyframes cycle {
+    0% {
+        -ms-transform: rotate(0)
+    }
+    100% {
+        -ms-transform: rotate(360deg)
+    }
+}
+
+@-o-keyframes cycle {
+    0% {
+        -o-transform: rotate(0)
+    }
+    100% {
+        -o-transform: rotate(360deg)
+    }
+}
+
+@keyframes cycle {
+    0% {
+        transform: rotate(0)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+/*效果八：载入时执行旋转*/ 
+<div class="xz">
+</div>
+<script>
+	$('.xz').addClass('xzload');
+</script>
+
+<style>
+
+.xz {
+    background: url(../images/mycms/index_con_one.png) no-repeat;
+    -webkit-transition: All 1.2s ease-in-out;
+    -moz-transition: All 1.2s ease-in-out;
+    -o-transition: All 1.2s ease-in-out;
+    transition: All 1.2s ease-in-out;
+}
+
+.xzload {
+    -webkit-transform: rotateY(-360deg);
+    -moz-transform: rotateY(-360deg);
+    -o-transform: rotateY(-360deg);
+    -ms-transform: rotateY(-360deg);
+    transform: rotateY(-360deg);
+}
+
+</style>
+
+
+/*效果九：放上去翻转显示背面的 */
+
+<div class="index_iboxad_con">
+	<figure>
+		<div class="img">
+			<div class="img_con">
+				<img src="images/index_icon1.png" alt="">
+			</div>
+		</div>
+		<div class="img_hover">
+			<div class="img_con">
+				<img src="images/index_icon1.png" alt="">
+			</div>
+		</div>
+	</figure>
+</div>
+
+
+<style>
+
+.index_iboxad_con figure {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.index_iboxad_con .img {
+    width: 100%;
+    height: 100%;
+    padding: 75px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 10;
+    background: #f5f5f5;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: All 0.5s ease-in-out;
+    transition: All 0.5s ease-in-out;
+}
+
+.index_iboxad_con .img_hover {
+    width: 100%;
+    height: 100%;
+    padding: 75px;
+    border-radius: 50%;
+    z-index: 5;
+    background: #00abd6;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: All 0.5s ease-in-out;
+    transition: All 0.5s ease-in-out;
+}
+
+.index_iboxad_con a:hover .img {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.index_iboxad_con a:hover .img_hover {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+
+</style>
+
+
+/*****************************************************文字效果************************************************************ */
+/*效果一：普通 */
+.text-shadow {
+    text-shadow: 1px 1px 2px #2c5103;
+    color: #60ad0d;
+}
+
+/*效果二：3D效果 */
+.text-3d {
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+    color: #fff;
+    background: #3699f6;
+}
+
+/*效果三：外发光 */
+.text-light {
+    text-shadow: 0 0 20px #ff6600;
+    color: #fff;
+    background: #333;
+}
+
+/*效果四：模糊效果*/ 
+.text-blur {
+    text-shadow: 0 0 10px #fff;
+    color: transparent;
+    background: #333;
+}
+
+/*效果五：凹痕效果*/ 
+.text-indent {
+    text-shadow: 0 1px 1px #FFF;
+    color: #717171;
+    background: #d3d3d3;
+}
+
+/*效果六：浮雕效果 */
+.text-carve {
+    text-shadow: -1px -1px #fff, 1px 1px #333;
+    color: #CCC;
+    background: #d3d3d3;
+}
+
+/*效果七：内阴影 */
+.text-inner-shadow {
+    background: #666;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: rgba(255, 255, 255, 0.5) 0px 3px 3px;
+}
+
+/*效果七：改变文字选取的默认颜色 */
+p.orange::selection {
+    background: #ff6600;
+    color: #fff;
+}
+
+/*效果八：重叠文字 */
+.text-overlap {
+    position: relative;
+    font: 130px Helvetica, Sans-Serif;
+    letter-spacing: -5px;
+    color: rgba(0, 255, 240, 0.5);
+}
+
+.text-overlap:after {
+    content: attr(title);
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    color: rgba(255, 6, 0, 0.5);
+}
+/*立体字效果：*/
+ * {
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+/******************************************************************************************************************************* */
+
+/*三角形： */
+em {
+    /*等边三角形*/
+    width: 0;
+    height: 0;
+    font-size: 0px;
+    line-height: 0px;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    border-right: 18px solid #ddd;
+}
+
+em {
+    /*等腰三角形*/
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid red;
+}
+
+em {
+    /*直角等腰三角形 ,不等腰只要改变px值不一样*/
+    width: 0;
+    height: 0;
+    border-top: 100px solid red;
+    border-right: 100px solid transparent;
+}
