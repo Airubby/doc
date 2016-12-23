@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p>
+								
+		什么正则表达式：字符串中字符出现的规律
+		如何使用正则表达式？ 验证字符串格式查找关键字，替换关键字
+		
+		[所以备选字符]里面无论多少字符，只能匹配一个字符
+		那天，我去了她家，我说：我草
+		匹配：我去、我草 -------------我[去草]
+		
+		[^所有备选字符] ^表示出了备选字符外都可以   ^只能放在第一个，否则会变成普通字符
+		我吃饭了，我下课了，我去去就来
+		匹配：我去、我草以外的我*            我[^去草]
+		
+		-表示字符的范围：备选字符连续的范围 [1-9][0-9] [A-Z] [a-zA-Z]  如果两个[备选字符]则匹配两位
+		汉字：[\u4e00-\u9fa5]
+		
+		预定义字符集：使用简化的字符，定义常用字符集
+		[0-9]：\d
+		[a-zA-Z0-9_]：\w
+		空字符(空格、tab符)：\s
+		
+		如果规则正文中出现特殊符号，用\转为原文         如果放到[]中就不用\ 转了
+		点：\.
+		
+		.表示一个任意字符
+		
+		数量词：规定前边一个字符出现次数的量词
+		语法：{min,max}      {num}:固定长度        {min,}至少min个，多了不限
+		\d{6}     \d{6,16}
+		
+		手机号：\+86\s1[3578]\d{9}
+		座机号：\d{3,4}-\d{7,8}
+		
+		特殊数量词：+ * ?
+		?：可有可无用(最多只能出现一次,英文问号)
+		匹配：我去     我了去                              我了?去
+		
+		*：可有可无用(不限制个数)
+		+：可有可无(至少出现一次，不限制出现次数)
+		
+		圆括号：分组        ?与它前面的一个关联
+		身份证：\d{15}(\d{2}[0-9xX])?
+		手机号：(\+86\s)?\s*1[358]\d{9}
+		
+		^：整个正则表达式的开头，表示以xxx开始
+		$：整个正则表达式的结尾，表示xxx结束
+		?=：预判，前一个字符之后，必须紧跟xxx   do\s(?!not)      do not
+		?!：预判，前一个字符之后，必须不能跟xxx
+		
+		中文姓名：[\u4e00-\u9fa5]{2,6}
+		邮箱：\w+@\w+([-]\w+)*(\.\w+)+          
+		([-]\w+)*：一个以上的字母，后可跟"-字母",可有可无
+		(\.\w+)+：".字母"组合至少出现一次
+		
+		RegExp对象：专门封装一条正则表达式，提供使用正则表达式的常用API
+		如何使用RegExp对象：1.创建、2.调用API
+		如何创建正则表达式对象：var regExp=/正则表达式/ig
+		API：var boolean = regExp.test("被检测的字符串")  如果验证通过返回true,否则返回false
+		
+		验证要求完整匹配！查找要求部分匹配
+		test方法默认：只要找到就返回true！
+		要完全匹配：正则表达式前加^,后加$
+		
+		查找：exec (查找到关键字的位置，有能找到关键字的内容)
+		index0f不支持正则，search支持正则，每次只能找一个，match所有内容，但得不到位置！
+		var arr=regExp.exec("被查找的内容")             得到的是数组
+		arr[0]：找到的关键字内容
+		arr.index属性：找到的关键字的位置
+		exec方法每次只能找一个，但是每次自动修改regExp对象的lastIndex属性！
+		regExp对象的lastIndex属性：表示下次开始匹配的位置！
+		
+		查找：仅判断有没有，或者仅查找位置：str.indexOf()
+			支持正则表达式：str.search()
+			仅找所有关键字的内容：str.match()
+			既找位置，又找内容：regExp.exec()
+		
+		/正则表达式/
+		var regExp=new RegExp("\\d{6}");   动态创建正则表达式
+		强调：所有\都要改为\\
+		
+		贪婪模式：.+  .* 默认先匹配整个字符串，再缩小范围！
+		懒惰模式：(.+?)  (.*?) 从第一个字符开始，向后扩展范围
+		<!--
+		<a(.+?)href="(.*?)"(.*?)>
+		<a(.+?)href\s*=\s*['"](.*?)['"](.*?)>
+		-->
+		
+		从正则表达式匹配的内容中取一部分：RegExp.$n
+		n：正则表达式中第n个分组，其实就是第n个圆括号(强调：分组从1开始)
+		
+		String对象与正则表达式
+		str.replace(/no/ig,"替换值")
+		str.match()  str.search()
+		
+		trim功能：去除字符串开始和结尾的空格。中间空格不去掉！
+		对输入字符串的处理，多数要先清除开头结尾空格
+		IE8不支持trim()方法！
+		
+		String总结：所有API都无法修改原字符串，都会返回新字符串，所有StringAPI都需要用变量保存结果！
+		str str.toLowerCase()/toUpperCase()
+		查找关键字：var index=str.indexOf("关键字"[,from])
+				var arr=str.match(/正则表达式/g)
+		获得子字符串：var substr=str.slice(start,end+1);
+							str.substring(start,end+1);
+							str.substr(start,count);
+		替换：str=str.replace(/正则表达式/g,"替换值");
+		获得指定位置的字符：var char=str.charAt(index)
+									str[index]
+		字符编码转码：var code=str.charCodeAt(index);
+					var char String.fromCharCode(code);
+					
+		RegExp对象总结：
+		var reg=/正则表达式/ig;
+		var reg=new RegExp("正则表达式",ig);
+		其中所有的\都要改为\\
+		验证str中是否包含reg匹配的关键字
+		var boolean=reg.test(str);
+		强调：完整验证，都需要在正则表达式前加^后加$
+		while((arr=reg.exec(str))!=null){
+			arr[0]   找到的一个关键字
+			arr.index   当前关键字的位置
+		}
+		RegExp.$n：获得正则表达式中第n个分组(圆括号)匹配的子字符串
+				
+		
+		Math类型：封装了所有数学计算有关的API
+		不能用new
+		Math.PI
+		取整：
+		Math.round(num)   四舍五入取整
+		Math.ceil(num)  向上取整
+		Math.floor(num)  向下取整
+		Math.pow(底数,幂)
+		Math.sqrt(n)    返回数的平方根
+		Math.abs(num)   取绝对值
+		Math.max/min(值1,值2,值3...)
+		随机数：
+		Math.random()  0<r<1
+		任意min max：Math.floor(Math.random()*(max-min+1)+min)
+		
+		
+		
+		
+		
+		</p>
+		<br><br><br><br><br><br><br><br>
+		<script type="text/javascript">
+		/*
+			var regExp=/^\w+@\w+([-]\w+)*(\.\w+)+$/;
+			while(true){
+				var input=prompt("输入邮箱：");
+				if(regExp.test(input)){
+					document.write("注册成功");
+					break;
+				}else{
+					alert("邮箱格式有误");
+				}
+			}
+			*/
+			
+			/*
+			var str="明明喜欢我，却不告诉我，别理我，我想静静；静静是谁？你TM先告诉我明明是谁？"
+			var regExp=/明明|静静/g;
+			var arr=[];
+			while((arr=regExp.exec(str))!=null){
+				//arr[0]关键字的内容
+				//arr.index:关键字的位置
+				document.write("在位置"+arr.index+"发现"+arr[0]+"<br>");
+			}
+			*/
+			
+			/*
+			//获取一段html文本中所有超链接的href属性的值
+			var txt='<script href="a.js" >'+'<a href="cost/list.do" >链接1</a>'+'<a class="main" href="cost/add.do" >链接2</a>';
+			var regExp=/<a(.+?)href\s*=\s*['"](.*?)['"](.*?)>/ig;   //查找都要加g
+			var arr=[];
+			while((arr=regExp.exec(txt))!=null){
+				console.log(arr[0]);
+				console.log(RegExp.$2);   //必须用RegExp类型直接调用$n，不能使用对象
+			}
+			
+			var txt='<script href="a.js" >'+'<a href="cost/list.do" >链接1</a>'+'<a class="main" href="cost/add.do" >链接2</a>';
+			var regExp=/<a(.+?)href\s*=\s*['"](.*?)['"](.*?)>/ig;   //查找都要加g
+			var arr=txt.match(regExp);
+				console.log(arr);
+			}
+			
+			*/
+			
+			/*
+			var str="那天我去了她家，我说：我草";
+			str=str.replace(/我[去草]/g,"**");
+			document.write(str);
+			*/
+			
+			/*
+			var str="no zuo no  die";
+			//var words=str.split(" ");
+			var words=str.split(/\s+/);  //要用正则表达式，不然上面str中有多个空格会出错
+			for(var i=0;i<words.length;i++){
+				var first=words[i][0].toUpperCase();
+				words[i]=first+words[i].substring(1);
+			}
+			document.write(words.join(" "));
+			*/
+			
+			/*
+			var code="4A7b";
+			while(true){
+				var input=prompt("输入验证码");
+				input=input.trim();
+				if(input.toLowerCase()==code.toLowerCase()){
+					document.write("登录成功");
+					break;
+				}else{
+					alert("验证码错误");
+				}
+			}
+			//IE8要用自己写的trim方法
+			function trim(str){
+				//使用正则表达式替换开头和结尾的空字符
+				var regExp=/(^\s+)|(\s+$)/g;
+				str=str.replace(regExp,"");
+				return str;
+			}
+			*/
+			
+			/*
+			var s1=75;
+			var s2=90;
+			var s3=80;
+			var arr=[2,4,1,7,6,3,9,8];
+			console.log(Math.max(s1,s2,s3));
+			var max=Math.max.apply(Math,arr);
+			console.log(max);
+			*/
+			
+			
+			//随机生成4位验证码
+			var codes=[];
+			//数字：48-57 大写字母：65-90 小写字母：97-122
+			for(var i=48;i<=57;codes.push(i),i++);
+			for(var i=65;i<=90;codes.push(i),i++);
+			for(var i=97;i<=122;codes.push(i),i++);
+			//总共62个元素，从0-61之间取随机数
+			function getCode(){
+				var arr=[];
+				for(var i=0;i<4;i++){
+					var index=Math.floor(Math.random()*(61-0+1)+0);
+					var char=String.fromCharCode(codes[index]);
+					arr.push(char);
+				}
+				return arr.join("");
+				//document.write("验证码："+code);
+			}
+			function trim(str){
+				var reg=/(^\s+)|(\s+$)/g;
+				return str.replace(reg,"");
+			}
+			while(true){
+				var code=getCode();
+				var input=prompt("输入验证码："+code);
+				var reg=/^[a-zA-Z0-9]{4}$/;
+				if(reg.test(input)){
+					if(input.toLocaleLowerCase()==code.toLocaleLowerCase()){
+						document.write("登录成功");
+						break;
+					}else{
+						alert("验证码错误");
+					}
+				}else{
+					alert("验证码格式不正确");
+				}
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+		
+		
+		
+		
+	</body>
+</html>
