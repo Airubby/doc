@@ -17,6 +17,7 @@ nvm list
 nvm install 6.9.1  安装
 nvm use 6.9.1
 
+或者 官网下载6.9.1版本，然后安装到dev\nvm\6.9.1; 然后nvm use 6.9.1
 
 
 div env:PATH   查看环境变量配置

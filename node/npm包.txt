@@ -1,2 +1,9 @@
-������formidable
-���ڸ�ʽ��silly-datetime
+表单,表单中含有文件上传：formidable
+日期格式：silly-datetime
+
+express中间件：
+POST请求在express中不能直接获得，必须使用body-parser模块
+JSON url（将提交的url转为json对象）：body-parser
+
+ejs 模板：ejs
+jade 模板： jade

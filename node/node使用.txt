@@ -1,6 +1,10 @@
 
 node开发一般先初始化   npm init;   npm init -y;  全部一起生成
 
+初始化后可以修改项目启动项：在package.json中的"scripts"中添加 "start":"node index.js"  运行时直接npm strat就可以找到要运行的主入口文件了
+index.js是初始化时默认配置的主入口文件
+
+
 安装指定版本：npm install bootstrap@1.2.3 --save
 
 
