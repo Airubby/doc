@@ -6,6 +6,7 @@ git status  查看本地仓库变更状态
 git add  将一个没有被跟踪的文件添加到跟踪列表
 mkdir .aaa
 .gitignore下面的 /dist  只就根目录下的dist  才被忽略   src下面的不忽略
+                /public/lib/   根目录下的public下面的lib下面的所有被忽略
 git add .   ===  git add --all    添加跟踪所有，出去要被忽略的
 git status -s  //  -s  是输出简要的变更日志
 git commit   将本地的变化提交的本地的仓库文件夹归档
@@ -42,9 +43,23 @@ git push -u origin gh-pages
 如果用自己的域名解析到这个上面，还得在根目录添加 CNAME 文件   内容为域名wjs.smallx.top
 如果github上创建的项目名称为airubby.github.io  这样 master也可以被预览
 
-git config --global user.name "B"
-git config --global user.email "D"
+用SSH：
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
 git config --list  //查看config
+创建SSH Key
+ssh-keygen -t rsa -C "ai_rubby@qq.com"
+id_rsa是私钥，不能泄露出去；id_rsa.pub是公钥
+ssh -T git@github.com  测试ssh keys是否配置成功
+
+git init
+git add --all
+git commit -m 'initial commit' 
+git remote add origin git@github.com:Airubby/doc.git
+git push -u origin master
+
+
+
 
 网址：hexo.io
 安装：npm install hexo-cli -g              npm install -g hexo-cli   
