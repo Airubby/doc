@@ -4,6 +4,7 @@ node开发一般先初始化   npm init;   npm init -y;  全部一起生成
 初始化后可以修改项目启动项：在package.json中的"scripts"中添加 "start":"node index.js"  运行时直接npm start就可以找到要运行的主入口文件了
 index.js是初始化时默认配置的主入口文件
 
+package.json 中的 "name": "gulpdemo" 的名字不能和要安装的包名一样，否则安装不上
 
 安装指定版本：npm install bootstrap@1.2.3 --save
 
@@ -20,6 +21,8 @@ npm install -g nrm
 nrm ls  查看
 nrm use taobao   用淘宝的镜像源
 nrm test  查看速度
+
+
 
 
 
