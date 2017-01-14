@@ -1,3 +1,4 @@
+#mongodb
 1.下载mongodb并按照
 2.添加到环境变量  MONGODB  = >  D:\mongodb\bin
                 将 %MONGODB% 添加到PATH中
@@ -28,4 +29,7 @@ db.student.update({"name":"小明"},{$set:{"age":16}});  查找名字叫做小�
 db.student.update({"score.shuxue":70},{$set:{"age":33}});  找数学成绩是70，把年龄更改为33岁
 
 nodejs操作 mongodb   需引入包  npm install mongodb
+
+#mysqldb
+ 清空users表：truncate users;
 

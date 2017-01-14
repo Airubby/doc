@@ -2,6 +2,9 @@
 日期格式：silly-datetime
 node fs扩展模块：fs-extra
 模板引擎：art-template、underscore
+函数使用工具（如md5()）：utility
+
+图片处理：gm
 
 express中间件：
 POST请求在express中不能直接获得，必须使用body-parser模块
@@ -11,3 +14,4 @@ multer ：用于处理 enctype="multipart/form-data"（设置表单的MIME编码
 
 ejs 模板：ejs
 jade 模板： jade
+xtemplate 模板：xtemplate
