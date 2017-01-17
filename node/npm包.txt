@@ -15,3 +15,11 @@ multer ：用于处理 enctype="multipart/form-data"（设置表单的MIME编码
 ejs 模板：ejs
 jade 模板： jade
 xtemplate 模板：xtemplate
+
+
+
+
+
+
+moment 日期处理类库
+jQuery Jcrop 图片裁剪
