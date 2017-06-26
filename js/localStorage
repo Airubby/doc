@@ -1,0 +1,7 @@
+var loginInfo={};
+loginInfo.psword=psword;
+loginInfo.remember=true;
+localStorage.loginInfo= JSON.stringify(loginInfo);
+if(localStorage.loginInfo){
+  loginInfo=JSON.parse(localStorage.loginInfo);
+}
