@@ -6,6 +6,9 @@ date
 **查看有谁在线（哪些人登陆到了服务器）
 who  查看当前在线
 last 查看最近的登陆历史记录
+返回到原来目录 cd -
+返回到上一级目录cd ..
+
 2、文件系统操作
 **
 ls /    查看根目录下的子节点（文件夹和文件）信息
@@ -16,6 +19,8 @@ cd  /home
 mkdir aaa     这是相对路径的写法 
 mkdir -p aaa/bbb/ccc
 mkdir  /data    这是绝对路径的写法 
+mkdir {a,b}  同时创建a，b文件夹
+
 **删除文件夹
 rmdir   可以删除空目录
 rm -r aaa   可以把aaa整个文件夹及其中的所有子节点全部删除
@@ -26,6 +31,14 @@ mv aaa angelababy
 touch  somefile.1   创建一个空文件
 echo "i miss you,my baby" > somefile.2  利用重定向“>”的功能，将一条指令的输出结果写入到一个文件中，会覆盖原文件内容
 echo "huangxiaoming ,gun dan" >> somefile.2     将一条指令的输出结果追加到一个文件中，不会覆盖原文件内容
+touch {a.txt,b.txt}  同时创建a，b文件
+
+echo "this is test" > test.txt  向test.txt中写数据会吧原来的数据清空
+echo "please read me first" >> test.txt 在原来的数据后面追加写
+查看一下test.txt的内容
+cat test.txt
+more test.txt
+less test.txt
 
 vi文本编辑器来编辑生成的文件  ctrl+l(清屏)
 1.首先会进入“一般模式”，次模式只接受各种快捷键，不能编辑文件内容
