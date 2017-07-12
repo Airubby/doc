@@ -34,11 +34,13 @@ echo "huangxiaoming ,gun dan" >> somefile.2     将一条指令的输出结果�
 touch {a.txt,b.txt}  同时创建a，b文件
 
 echo "this is test" > test.txt  向test.txt中写数据会吧原来的数据清空
+cat a.txt > b.txt 将a.txt中的文件复制到b.txt   追加用>>
 echo "please read me first" >> test.txt 在原来的数据后面追加写
 查看一下test.txt的内容
 cat test.txt
 more test.txt
 less test.txt
+到目录  du -sh *  查看*的大小
 
 vi文本编辑器来编辑生成的文件  ctrl+l(清屏)
 1.首先会进入“一般模式”，次模式只接受各种快捷键，不能编辑文件内容
