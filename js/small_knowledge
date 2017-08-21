@@ -1,1 +1,2 @@
-
+五星评论：
+  var rate=2; "★★★★★☆☆☆☆☆".slice(5 - rate, 10 - rate);
