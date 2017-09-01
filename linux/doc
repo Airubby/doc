@@ -84,3 +84,33 @@ chmod 664 haha.dat
 chmod -R 770 aaa/
 chown angela:angela aaa/    <只有root能执行>目录没有执行权限的时候普通用户不能进入文件只有读写权限的时候普通用户是可以删除的(删除文件不是修改它,是操作父及目录),只要父级目录有执行和修改的权限
 
+虚拟机修改网卡ip
+
+解决克隆后eth0不见的问题
+直接修改  /etc/sysconfig/network-script/ifcfg-eth0
+删掉UUID  HWADDR
+配置静态地址保存
+然后：
+rm -rf 　/etc/udev/rules.d/70-persistent-net.rules
+或者修改这个文件：vi /etc/udev/rules.d/70-persistent-net.rules
+将eth1改成eth0，然后删除原来带eth0的那些配置
+然后 reboot
+
+安装解压文件
+
+pwd 获取当前路径
+**解压安装包
+ tar -zxvf jdk-7u45-linux-x64.tar.gz -C apps/
+**然后修改环境变量
+vi /etc/profile
+在文件最后添加
+export JAVA_HOME=/root/apps/jdk1.7.0_45
+export PATH=$PATH:$JAVA_HOME/bin
+保存退出
+**然后重新加载环境变量
+source /etc/profile
+
+
+
+
+
