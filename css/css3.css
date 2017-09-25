@@ -511,6 +511,7 @@ p.orange::selection {
 /*三角形： */
 em {
     /*等边三角形*/
+    content: "";
     width: 0;
     height: 0;
     font-size: 0px;
@@ -522,6 +523,7 @@ em {
 
 em {
     /*等腰三角形*/
+    content: "";
     width: 0;
     height: 0;
     border-left: 50px solid transparent;
@@ -531,6 +533,7 @@ em {
 
 em {
     /*直角等腰三角形 ,不等腰只要改变px值不一样*/
+    content: "";
     width: 0;
     height: 0;
     border-top: 100px solid red;
