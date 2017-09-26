@@ -1,0 +1,23 @@
+//websocket的连接函数
+//wsConnection("8080", "", function(result){console.log(result)})
+function wsConnection(port, type, callback) {
+    // var url = location.host.indexOf(":")!=-1?location.host.slice(0, location.host.indexOf(":")):location.host
+    var url="192.168.10.168"
+    try {
+        var SOCKECT_ADDR = "ws://" + url +":"+ port;
+        ws = new WebSocket(SOCKECT_ADDR);
+        ws.onopen = function (event) {
+            console.log("已经与服务器建立了连接\r\n当前连接状态：" + this.readyState);
+            ws.send(type);
+        };
+       
+        ws.onmessage = callback;
+        ws.onclose = function (event) {
+        };
+        ws.onerror = function (event) {
+           // console("WebSocket异常！" + event.toString());
+        };
+    } catch (ex) {
+        console(ex.message);
+    }
+}
