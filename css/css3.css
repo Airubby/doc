@@ -539,3 +539,17 @@ em {
     border-top: 100px solid red;
     border-right: 100px solid transparent;
 }
+
+进度条：<progress value="95" max="100"></progress>
+::-ms-fill {
+    background: #0096BA;
+}
+::-moz-progress-bar {
+    background: #0096BA;
+}
+::-webkit-progress-bar {
+    background: #efefef;
+}
+::-webkit-progress-value {
+    background: #0096BA;
+}
