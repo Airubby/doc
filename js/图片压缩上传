@@ -1,0 +1,103 @@
+<input type="file" id="fileImg" name="file">
+//引入jQuery
+
+
+$("#fileImg").on("change", function(e){
+			var file = e.target.files[0];
+			ImgToBase64(file, 720,400,1, function (base64) { //720:最大宽度；400:最大高度；1:图片质量
+                  //$("#img1")[0].src = base64;//预览页面上预留一个img元素，载入base64
+                  //$("#img1")[0].width = 300;//设定宽高，不然会自动按照压缩过的图片宽高设定，有可能超出预想的范围。
+				  $("#img1").append("<img src='"+base64+"'>");
+　　　　　　　　　　//直接利用ajax上传base64到服务器，完毕
+				console.log(base64);
+				var fd = new FormData();
+				var blob = dataURItoBlob(base64);
+				blob.name = file.name; //获取上传图片的名称
+				fd.append('file', blob);
+				console.log(fd.get("file"));
+				$.ajax({
+					type: 'POST',
+					url: '/upload',
+					data: fd,
+					cache: false,
+					processData: false, // 不会将 data 参数序列化字符串
+					contentType: false, // 根据表单 input 提交的数据使用其默认的 contentType
+					xhr: function () {
+						var xhr = new window.XMLHttpRequest();
+						xhr.upload.addEventListener("progress", function (evt) {
+							if (evt.lengthComputable) {
+								var percentComplete = evt.loaded / evt.total;
+								console.log('进度', percentComplete);
+							}
+						}, false);
+						return xhr;
+
+						//下面这个是以前3.0的
+						// run = true;
+						// setshow(true);
+						// var xhr = $.ajaxSettings.xhr();
+						// if (onprogress && xhr.upload) {
+						// 	xhr.upload.addEventListener("progress", onprogress, false);
+						// 	return xhr;
+						// }
+
+					}
+				}).success(function (res) {
+					// 拿到提交的结果
+					console.error(res);
+				}).error(function (err) {
+					console.error(err);
+				});
+
+
+              });
+		})
+
+		function ImgToBase64(file, maxLenWidth,maxLenHeight,quality, callBack){
+			var reader = new FileReader();
+			var img = new Image();
+			reader.onloadend=function(){
+				// 图片的 base64 格式, 可以直接当成 img 的 src 属性值
+				var dataURL = reader.result;//读取到的文件内容.这个属性只在读取操作完成之后才有效,并且数据的格式取决于读取操作是由哪个方法发起的.所以必须使用reader.onload，
+				img.src = dataURL;
+				// 插入到 DOM 中预览
+				$("#img").append("<img src='"+img.src+"'>");
+			}
+			img.onload=function(){
+				var width=img.width, height = img.height;
+				//计算缩放比例
+				var rate = 1;
+				if(width>=height){
+					if(width>maxLenWidth){
+						rate=maxLenWidth/width;
+					}
+				}else{
+					if(height>maxLenHeight){
+						rate=maxLenHeight/height;
+					}
+				}
+				img.width=width*rate;
+				img.height=height*rate;
+				//生成canvas
+				var canvas = document.createElement("canvas");
+				var ctx = canvas.getContext("2d");
+				canvas.width = img.width;
+				canvas.height = img.height;
+				ctx.drawImage(img, 0, 0, img.width, img.height);
+				var base64 = canvas.toDataURL('image/png', quality);
+				callBack(base64);
+			}
+			reader.readAsDataURL(file); // 读出 base64
+		}
+		function dataURItoBlob(dataURI) {
+			var byteString = atob(dataURI.split(',')[1]);
+			var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+			var ab = new ArrayBuffer(byteString.length);
+			var ia = new Uint8Array(ab);
+			for (var i = 0; i < byteString.length; i++) {
+				ia[i] = byteString.charCodeAt(i);
+			}
+			return new Blob([ab], {
+				type: mimeString
+			});
+		}
