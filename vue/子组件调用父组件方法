@@ -1,1 +1,48 @@
+父组件中：
+<template>
+  <SubmitBtnInfo v-bind:submitBtnInfo="activeBtn" v-on:giveUp="giveUp" v-on:submitInfo="submitInfo"></SubmitBtnInfo>
+</template>
+import SubmitBtnInfo from '../components/submitBtnInfo.vue'
+export default {
+  created () {},
+  mounted() {},
+  data(){
+    return{
+      activeBtn:false,
+    }
+  },
+  methods:{
+    submitInfo:function(){},
+    giveUp:function(){},
+  },
+  components:{SubmitBtnInfo}
+}
+
+子组件中：
+<template>
+  <div class="loncom_public_tabbtn">
+      <span v-show="submitBtnInfo">
+          <el-button type="info" plain @click="giveUp">放弃修改</el-button>
+      </span>
+      <span>
+          <el-button type="primary" @click="submitInfo">提交</el-button>
+      </span>
+  </div>
+</template>
+
+<script>
+export default {
+    methods:{
+      giveUp:function(){
+        this.$emit('giveUp');    //v-on:giveUp
+      },
+      submitInfo:function(){
+        this.$emit('submitInfo','canshu');  //如果有参数带出
+      },
+    },
+    props:["submitBtnInfo"],
+}
+</script>
+
+
 
