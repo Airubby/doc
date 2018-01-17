@@ -1,0 +1,22 @@
+export default {
+  data() {
+    return {
+      classifyInfo:{
+            title:"选择设备分类",
+            visible:false,
+            width:"400px",
+            data:[],
+        },
+        b: 2,
+    }
+  },
+  watch:{
+        'classifyInfo.data':function(val,oldval){
+            console.log('数据变化了')
+        },
+        b:function(val,oldval){
+            console.log('数据变化了')
+        },
+   },
+
+}
