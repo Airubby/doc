@@ -1,0 +1,60 @@
+<template>
+  <el-form :model="access_info" :rules="formRules" ref="formInfo">
+    <el-tree
+        :data="access_data"
+        node-key="id"
+        ref="tree"
+        show-checkbox
+        :props="defaultProps"
+        accordion
+        :getCheckedNodes="getCheckedNodes"
+        :setCheckedNodes="setCheckNodes"
+        @check-change="changeTree"
+        :expand-on-click-node="true"
+        >
+    </el-tree>
+    <el-form-item prop="listtree">
+          <el-input v-model="access_info.listtree" size="small" style="display:none;"></el-input>
+    </el-form-item>
+  </el-form>
+</template>
+
+export default {
+  data() {
+    return{
+      access_info:{   // 这个树形初始化时必须得在data属性中存在，不然监听不到
+           listtree:'',   
+           list:[],
+       },
+       //树形
+      access_data: [],
+      formRules:{
+            listtree:[
+                { required: true, message: '请选择应用对象', trigger: 'blur' },
+            ]
+       },
+    }
+  },
+  methods:{
+    changeTree:function(){
+          this.access_info.list=this.$refs.tree.getCheckedNodes(true);
+     },
+     //获取树形勾选的
+     getCheckedNodes:function(){
+
+     },
+     
+  },
+  watch:{
+        //监听树形数据变化
+        'access_info.list':function(val,oldval){
+            if(val.length>0){
+                this.access_info.listtree=val[0].name;
+            }else{
+                this.access_info.listtree='';
+            }
+            
+        },
+   },
+}
+                                                
