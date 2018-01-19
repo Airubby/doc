@@ -16,6 +16,7 @@
     <el-form-item prop="listtree">
           <el-input v-model="access_info.listtree" size="small" style="display:none;"></el-input>
     </el-form-item>
+    <el-button type="primary" @click="submitInfo('formInfo')">保 存</el-button>
   </el-form>
 </template>
 
@@ -43,7 +44,12 @@ export default {
      getCheckedNodes:function(){
 
      },
-     
+    submitInfo:function(formName){
+       this.$refs[formName].validate((valid) => {
+        if(valid){ //验证通过
+        }
+     })
+    }
   },
   watch:{
         //监听树形数据变化
