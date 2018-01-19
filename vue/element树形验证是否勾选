@@ -26,7 +26,7 @@
 export default {
   data() {
     return{
-      access_info:{   // 这个树形初始化时必须得在data属性中存在，不然监听不到
+      access_info:{   // 这个树形初始化时必须得在data属性中存在，不然watch监听不到
            listtree:'',   
            list:[],
            obj{
