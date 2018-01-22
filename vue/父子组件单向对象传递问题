@@ -1,0 +1,64 @@
+父组件：
+<template>
+  <div>
+  <div class="loncom_zt_sidebarbox" v-for="(item,index) in map_list">
+        <div class="loncom_zt_maptitle">{{item.name}}</div>
+        <div class="loncom_zt_mapimg">
+            <img :src="'static/zutai/images/img.png'">
+        </div>
+        <div class="loncom_zt_map_btn">
+            <span @click="editMap(item,index)"><i class="fa fa-edit"></i></span>
+            <span><i class="fa fa-pencil"></i></span>
+            <span><i class="fa fa-trash"></i></span>
+        </div>
+    </div>
+    <div class="loncom_zt_sidebarbox loncom_zt_mapadd">
+        <i class="fa fa-plus"></i>
+    </div>
+  <DialogZtMapAdd v-bind:dialogInfo="mapInfo"></DialogZtMapAdd>
+  </div>
+</template>
+<script>
+import DialogZtMapAdd from '../components/dialogZtMapAdd.vue'
+export default {
+  data() {
+    return{
+      mapInfo:{
+          visible:false,
+          width:"500px",
+          data:{},
+      },
+    }
+  },
+  methods:{
+    editMap:function(item,index){
+          this.mapInfo.title="编辑电子地图";
+          this.mapInfo.type="edit";
+          this.mapInfo.index=index;
+          this.mapInfo.visible=true;
+          var _item=JSON.parse(JSON.stringify(item));  //重新定义然后赋值过去才行
+          //var _item=Object.assign({}, item);  //这种方法也可以
+          this.mapInfo.data=_item;
+      },
+  },
+  components:{DialogZtMapAdd}
+}
+</script>
+
+子组件：
+export default {
+  data(){
+    return{
+      //备份父组件过来的对象
+      dialog_info:this.dialogInfo,
+      //本组件绑定数据用的
+      map_list:{},
+    }
+  },
+  watch:{
+      'dialog_info.data':function(val,oldVal){
+          this.map_list=val;
+      }
+  },
+  props:["dialogInfo"]  
+}
