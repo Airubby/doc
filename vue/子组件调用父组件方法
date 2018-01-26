@@ -12,7 +12,7 @@ export default {
     }
   },
   methods:{
-    submitInfo:function(){},
+    submitInfo:function(cans){console.log("这个地方接收参数，不用再v-on中写参数")},
     giveUp:function(){},
   },
   components:{SubmitBtnInfo}
