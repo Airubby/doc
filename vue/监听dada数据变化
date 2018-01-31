@@ -8,6 +8,11 @@ export default {
             data:[],
         },
         b: 2,
+        form: {
+            title: '',
+            width:'',
+            height:'',
+        },
     }
   },
   watch:{
@@ -17,6 +22,12 @@ export default {
         b:function(val,oldval){
             console.log('数据变化了')
         },
+        form:{
+          handler:function(val,oldval){
+              console.log('数据变化了')
+          },
+          deep: true
+        }
    },
 
 }
