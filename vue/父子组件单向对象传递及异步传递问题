@@ -15,7 +15,8 @@
     <div class="loncom_zt_sidebarbox loncom_zt_mapadd">
         <i class="fa fa-plus"></i>
     </div>
-  <DialogZtMapAdd v-bind:dialogInfo="mapInfo"></DialogZtMapAdd>
+    <!--如果异步的话判断异步获取到了值再初始化子组件-->
+  <DialogZtMapAdd v-bind:dialogInfo="mapInfo" v-if="JSON.stringify(mapInfo.data)!='{}'"></DialogZtMapAdd>
   </div>
 </template>
 <script>
