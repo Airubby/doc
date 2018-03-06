@@ -17,9 +17,9 @@ jade 模板： jade
 xtemplate 模板：xtemplate
 
 
-
-
-
-
 moment 日期处理类库
 jQuery Jcrop 图片裁剪
+
+
+package包制作发布npm publish
+npm publish前先npm adduser  填写npmjs上的账号信息然后npm publish
