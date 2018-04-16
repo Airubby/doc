@@ -1,3 +1,11 @@
+图形化设置只输入一次密码:
+Right click → TortoiseGit → Settings → Git → Credential. 
+设置为 wincred - this repository only 或者 wincred - current Windows user
+Right click → TortoiseGit → Settings → Git   右边的Edit local .git/config
+url = http://xiegj:12345678@192.168.10.253:10101/r/iSmacSite.git
+
+
+
 https://github.com/tj
 在github上新建文件夹home和文件test.md:    home/test.md
 在根目录：
