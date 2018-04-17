@@ -1,0 +1,9 @@
+//滚动到底部执行
+$(".parent").scroll(function () { //父
+    var viewH = $(this).height(), //可见高度
+        contentH = $(".child").height(), //内容高度 子
+        scrollTop = $(this).scrollTop();//滚动高度
+    if (scrollTop / (contentH - viewH) >= 0.99) { //到达底部100px时,加载新内容,contentH - viewH - scrollTop <= 100
+        console.log(132)
+    }
+});
