@@ -1,0 +1,16 @@
+<el-search-table-pagination type="local" class="loncom_table_form loncom_position_relative loncom_mb50" 
+    @selection-change="selectionChange"
+    :show-pagination="false" border :data="table_info" :columns="table_info_columns" :form-options="table_info_formOptions">
+    <el-table-column slot="prepend" type="selection"></el-table-column>
+    <template slot-scope="scope" slot="preview-handle">
+        <span>
+            <a href="javascript:;" class="loncom_color" @click="editTableInfo(scope.row)">编辑</a>
+            <em>|</em>
+            <a href="javascript:;" class="loncom_color" @click="removeTableInfo(scope.row,scope.$index)">删除</a>
+        </span>
+    </template>
+</el-search-table-pagination>
+
+selectionChange:function(val){
+    console.log(val)
+},
