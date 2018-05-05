@@ -1,6 +1,6 @@
 父组件中：
 <template>
-  <SubmitBtnInfo v-bind:submitBtnInfo="activeBtn" v-on:giveUp="giveUp" v-on:submitInfo="submitInfo"></SubmitBtnInfo>
+  <SubmitBtnInfo v-bind:submitBtnInfo="activeBtn" v-on:giveUp="giveUp" v-on:submitInfo="submitInfo" ref="runChildFun"></SubmitBtnInfo>
 </template>
 import SubmitBtnInfo from '../components/submitBtnInfo.vue'
 export default {
@@ -12,6 +12,7 @@ export default {
     }
   },
   methods:{
+    runChild:function(){this.$refs.runChildFun.runFun()},
     submitInfo:function(cans){console.log("这个地方接收参数，不用再v-on中写参数")},
     giveUp:function(){},
   },
@@ -33,6 +34,7 @@ export default {
 <script>
 export default {
     methods:{
+      runFun:function(){},
       giveUp:function(){
         this.$emit('giveUp');    //v-on:giveUp
       },
