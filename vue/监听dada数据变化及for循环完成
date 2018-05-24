@@ -13,6 +13,7 @@ export default {
             width:'',
             height:'',
         },
+        navList:[],
     }
   },
   watch:{
@@ -28,6 +29,13 @@ export default {
           },
           deep: true
         }
+        //navList是从后台获取的菜单在页面for循环渲染
+        navList:function(val,oldval){
+            this.$nextTick(function(){
+                /*现在数据已经渲染完毕*/
+                this.init();
+            })
+        },
    },
 
 }
