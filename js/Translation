@@ -1,0 +1,63 @@
+"use strict";
+var dict = {};  
+var publicUrl="";
+$(function() {  
+	registerWords();  
+	setLanguage();  
+});  
+
+function getUrl(){
+	var curWwwPath=window.document.location.href;
+	var pathName=window.document.location.pathname; 
+	var pos=curWwwPath.indexOf(pathName); 
+	var localhostPaht=curWwwPath.substring(0,pos); 
+	var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+	publicUrl=localhostPaht+projectName
+}
+
+function setLanguage() {  
+	loadDict();  
+	$("[langue]").each(function() {  
+		switch (this.tagName.toLowerCase()) {  
+			
+			case "input":  
+				$(this).val( __tr($(this).attr("langue")) );  
+				$(this).attr('placeholder',__tr($(this).attr("langue")))
+				break;  
+			default:  
+				$(this).text( __tr($(this).attr("langue")) );  
+		}  
+	});  
+}  
+
+function __tr(src) {  
+	loadDict();
+	return (dict[src] || src);  
+}  
+
+function loadDict() {  
+	getUrl()
+	var langue = (sessionStorage.langue || "zh"); 
+	$.ajax({  
+		async: false,  
+		type: "GET",  
+		url: publicUrl+'/common/'+langue + ".json",  
+		success: function(msg) { 
+			dict=eval(msg)
+		}  
+	});  
+}  
+
+function registerWords() {  
+	$("[langue]").each(function() {  
+		switch (this.tagName.toLowerCase()) {  
+			case "input":  
+				$(this).attr("langue", $(this).val()); 
+				$(this).attr('langue', $(this).attr("placeholder"))
+				break;  
+			default:  
+				$(this).attr("langue", $(this).text());  
+		}  
+	});  
+}  
+
