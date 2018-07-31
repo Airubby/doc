@@ -7,3 +7,6 @@ $(".parent").scroll(function () { //父
         console.log(132)
     }
 });
+//数组去重 
+var arr=['4','4'] 
+var arr=Array.from(new Set(arr))
