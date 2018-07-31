@@ -1,1 +1,15 @@
 打包后的js,css不带hash值设置：build/webpack.prod.conf.js
+导出：
+Exportp:function(){
+      this.$api.get('/pointTemplate/pointTemplateExport', {typeTempId:this.dialogInfo.typeTempId}, r => {
+          console.log(r)
+           var curWwwPath=window.document.location.href;  
+          //获取主机地址之后的目录，如： uimcardprj/share/meun.jsp  
+          var pathName=window.document.location.pathname;  
+          var pos=curWwwPath.indexOf(pathName);  
+          //获取主机地址，如： http://localhost:8083  
+          var localhostPaht=curWwwPath.substring(0,pos);
+          location.href= localhostPaht+ "/pointTemplate/pointTemplateExport?typeTempId="+ this.dialogInfo.typeTempId;
+      }); 
+
+ },
