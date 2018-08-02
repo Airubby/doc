@@ -1,15 +1,27 @@
 打包后的js,css不带hash值设置：build/webpack.prod.conf.js
 导出：
 Exportp:function(){
+      let downloadElement = document.createElement('a')
+      let href=window.document.location.origin+ "/export/hisalarm?level="+level;
+      downloadElement.href = href
+      document.body.appendChild(downloadElement)
+      downloadElement.click()
+      document.body.removeChild(downloadElement) // 下载完成移除元素
+      window.URL.revokeObjectURL(href) // 释放掉blob对象
+            
       this.$api.get('/pointTemplate/pointTemplateExport', {typeTempId:this.dialogInfo.typeTempId}, r => {
-          console.log(r)
-           var curWwwPath=window.document.location.href;  
-          //获取主机地址之后的目录，如： uimcardprj/share/meun.jsp  
-          var pathName=window.document.location.pathname;  
-          var pos=curWwwPath.indexOf(pathName);  
-          //获取主机地址，如： http://localhost:8083  
-          var localhostPaht=curWwwPath.substring(0,pos);
-          location.href= localhostPaht+ "/pointTemplate/pointTemplateExport?typeTempId="+ this.dialogInfo.typeTempId;
+          //下面的方法引入import XLSX from 'xlsx';  $ npm install xlsx      r是数据流
+          const blob = new Blob([r], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8' })
+          const downloadElement = document.createElement('a')
+          const href = window.URL.createObjectURL(blob)
+          downloadElement.href = href
+          downloadElement.download = 'rate.xlsx'
+          document.body.appendChild(downloadElement)
+          downloadElement.click()
+          document.body.removeChild(downloadElement) // 下载完成移除元素
+          window.URL.revokeObjectURL(href) // 释放掉blob对象
+          
+          
       }); 
 
  },
