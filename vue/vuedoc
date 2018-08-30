@@ -1,3 +1,6 @@
+自定义扩展参数：:on-success="onSuccess.bind(this,'canshu')"  //this是原有的参数
+
+
 打包后的js,css不带hash值设置：build/webpack.prod.conf.js
 导出：
 Exportp:function(){
