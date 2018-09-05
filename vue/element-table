@@ -9,8 +9,39 @@
             <a href="javascript:;" class="loncom_color" @click="removeTableInfo(scope.row,scope.$index)">删除</a>
         </span>
     </template>
+    <!--如果每个栏目都有三个状态显示，可以循环展示不同状态-->
+    <template  v-for="item in slot_arr" slot-scope="scope" :slot="'preview-'+item">
+        <div style="height:50px;line-height:50px;background:#F18365;color:#fff;" v-if="scope.row[item]=='夜班'">
+            {{scope.row[item]}}
+        </div>
+        <div style="height:50px;line-height:50px;background:#70AD47;color:#fff;" v-else-if="scope.row[item]=='正常班'">
+            {{scope.row[item]}}
+        </div>
+        <div style="height:50px;line-height:50px;background:#FFC000;color:#fff;" v-else-if="scope.row[item]=='白班'">
+            {{scope.row[item]}}
+        </div>
+        <div v-else style="height:50px;line-height:50px;">
+            {{scope.row[item]}}
+        </div>
+    </template>
 </el-search-table-pagination>
 
 selectionChange:function(val){
     console.log(val)
 },
+
+
+data:{
+    table_info_columns: [
+                {prop: 'name',label: '值班人员信息', minWidth: 15},
+                {prop: 'work',label: '岗位', minWidth: 10},
+                {prop: 'date1',label: '6/10 周日', minWidth: 10,slotName:'preview-date1'},
+                {prop: 'date2',label: '6/11 周一', minWidth: 10,slotName:'preview-date2'},
+                {prop: 'date3',label: '6/12 周二', minWidth: 10,slotName:'preview-date3'},
+                {prop: 'date4',label: '6/13 周三', minWidth: 10,slotName:'preview-date4'},
+                {prop: 'date5',label: '6/14 周四', minWidth: 10,slotName:'preview-date5'},
+                {prop: 'date6',label: '6/15 周五', minWidth: 10,slotName:'preview-date6'},
+                {prop: 'date7',label: '6/16 周六', minWidth: 10,slotName:'preview-date7'},
+            ],
+            slot_arr:['date1','date2','date3','date4','date5','date6','date7'],
+}
