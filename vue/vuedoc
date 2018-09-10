@@ -28,3 +28,44 @@ Exportp:function(){
       }); 
 
  },
+
+
+
+
+pickerOptions: {
+      shortcuts: [{
+        text: '今日',
+        onClick(picker) {
+            const theDate = new Date();
+            const start=theDate.Format("yyyy-MM-dd 00:00:00");
+            const end=theDate.Format("yyyy-MM-dd 23:59:59");
+            picker.$emit('pick', [start, end]);
+        }
+      }, {
+        text: '本周',
+        onClick(picker) {
+            const theDate = new Date();
+            const nowDay=theDate.getDay();
+            let start=null;
+            let end=null;
+            if(nowDay!=0){
+                start=new Date(theDate.getTime()-3600*1000*24*(nowDay-1)).Format("yyyy-MM-dd 00:00:00");
+                end=new Date(theDate.getTime()+3600*1000*24*(7-nowDay)).Format("yyyy-MM-dd 23:59:59");
+            }else{
+                start=new Date(theDate.getTime()-3600*1000*24*6).Format("yyyy-MM-dd 00:00:00");
+                end=theDate.Format("yyyy-MM-dd 23:59:59");
+            }
+            picker.$emit('pick', [start, end]);
+        }
+      },{
+        text: '本月',
+        onClick(picker) {
+            const theDate = new Date();
+            let theMonth=theDate.getMonth();
+            const start = new Date(theDate.getFullYear(),theMonth,1).Format("yyyy-MM-dd 00:00:00");
+            let nextMonth=theMonth+1;
+            const end=new Date(new Date(theDate.getFullYear(),nextMonth,1)-1000*60*60*24).Format("yyyy-MM-dd 23:59:59");
+            picker.$emit('pick', [start, end]);
+        }
+      }]
+      },
