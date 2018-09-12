@@ -1,4 +1,9 @@
 自定义扩展参数：:on-success="onSuccess.bind(this,'canshu')"  //this是原有的参数
+子组件中获取dom元素，得在mounted() {
+        this.$nextTick(function(){
+            这里能获取dom元素
+        })
+    },
 
 
 打包后的js,css不带hash值设置：build/webpack.prod.conf.js
