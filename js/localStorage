@@ -5,3 +5,5 @@ localStorage.loginInfo= JSON.stringify(loginInfo);
 if(localStorage.loginInfo){
   loginInfo=JSON.parse(localStorage.loginInfo);
 }
+
+sessionStorage.removeItem("zt_nav"); 清除zt_nav  这个
