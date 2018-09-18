@@ -4,7 +4,7 @@
             这里能获取dom元素
         })
     },
-
+if (this && this._isDestroyed) {组件摧毁后执行}  
 
 打包后的js,css不带hash值设置：build/webpack.prod.conf.js
 导出：
