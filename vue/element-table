@@ -49,7 +49,7 @@ data:{
 table_forms: {
     inline: true,
     size:'small',
-        initParams:{alarmlevel:""}, //异步初始化就给的参数
+        initParams:{alarmlevel:""}, //异步初始化就给的参数 el-search-table-pagination中绑定 :params="table_forms.initParams"
     forms: []
 },
 异步刷新：this.$refs['thisRef'].searchHandler(false);
