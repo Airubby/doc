@@ -2,6 +2,7 @@
     @selection-change="selectionChange"
     :show-pagination="false" border :data="table_info" :columns="table_info_columns" :form-options="table_info_formOptions">
     <el-table-column slot="prepend" type="selection"></el-table-column>
+    <el-table-column slot="prepend" type="index" label="序号" width="50"></el-table-column>
     <template slot-scope="scope" slot="preview-handle">
         <span>
             <a href="javascript:;" class="loncom_color" @click="editTableInfo(scope.row)">编辑</a>
