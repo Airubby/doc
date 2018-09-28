@@ -9,6 +9,7 @@ if (this && this._isDestroyed) {组件摧毁后执行}
 打包后的js,css不带hash值设置：build/webpack.prod.conf.js
 导出：
 Exportp:function(){
+        //一、
       let downloadElement = document.createElement('a')
       let href=window.document.location.origin+ "/export/hisalarm?level="+level;
       downloadElement.href = href
@@ -16,7 +17,19 @@ Exportp:function(){
       downloadElement.click()
       document.body.removeChild(downloadElement) // 下载完成移除元素
       window.URL.revokeObjectURL(href) // 释放掉blob对象
-            
+       //二、
+       let url = '/iSmacSite'+this.form_info.list[i].url;
+            let link = document.createElement('a')
+            link.style.display = 'none'
+            link.href = url
+            link.setAttribute('download', this.form_info.list[i].name)
+
+            document.body.appendChild(link)
+            link.click();
+            window.URL.revokeObjectURL(link.href); // 释放URL 对象
+            document.body.removeChild(link);
+                    
+       //三、    
       this.$api.get('/pointTemplate/pointTemplateExport', {typeTempId:this.dialogInfo.typeTempId}, r => {
           //下面的方法引入import XLSX from 'xlsx';  $ npm install xlsx      r是数据流
           const blob = new Blob([r], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8' })
