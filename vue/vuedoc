@@ -1,3 +1,4 @@
+<span :class='{"one":true,"two":true}'></span>
 自定义扩展参数：:on-success="onSuccess.bind(this,'canshu')"  //this是原有的参数
 子组件中获取dom元素，得在mounted() {
         this.$nextTick(function(){
