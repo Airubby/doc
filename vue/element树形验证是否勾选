@@ -24,6 +24,24 @@
   </el-form>
 </template>
 
+<style>
+//这个得写全局才行
+.loncom_tree_list{
+  width: -webkit-calc(100% - 24px);
+  width: -moz-calc(100% - 24px);
+  width: calc(100% - 24px);
+  font-size: 12px;
+}
+.loncom_tree_listbtn{
+  display: none;
+}
+.loncom_tree_list:hover .loncom_tree_listbtn{
+  display: block;
+}
+
+</style>
+
+
 export default {
   data() {
     return{
