@@ -13,6 +13,7 @@
         :getCheckedNodes="getCheckedNodes"
         :setCheckedNodes="setCheckNodes"
         @check-change="changeTree"
+        :render-content="renderEnergy"
         :expand-on-click-node="true"
         >
     </el-tree>
@@ -53,6 +54,17 @@ export default {
      getCheckedNodes:function(){
 
      },
+     renderEnergy(h, { node, data, store }) {
+            return (
+            <span class="loncom_tree_list" on-dblclick={ () => this.querysetting(node,data,store) } >
+              <em class="loncom_mr10">{node.label}</em>
+              <em class="loncom_fr loncom_tree_listbtn">
+                <i class="el-icon-edit loncom_mr5" on-click={ () => this.editEnergyTree(node,data,store) }></i>
+                <i class="el-icon-delete" on-click={ () => this.removeEnergyTree(node, data) }></i>
+              </em>
+            </span>
+            );
+        },
     submitInfo:function(formName){
        this.$refs[formName].validate((valid) => {
         if(valid){ //验证通过
