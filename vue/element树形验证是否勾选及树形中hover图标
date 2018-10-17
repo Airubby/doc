@@ -13,6 +13,7 @@
         :getCheckedNodes="getCheckedNodes"
         :setCheckedNodes="setCheckNodes"
         @check-change="changeTree"
+         @node-click="handleNodeClick"
         :render-content="renderEnergy"
         :expand-on-click-node="true"
         >
@@ -72,6 +73,7 @@ export default {
      getCheckedNodes:function(){
 
      },
+     handleNodeClick(data,node) {},
      renderEnergy(h, { node, data, store }) {
             return (
             <span class="loncom_tree_list" on-dblclick={ () => this.querysetting(node,data,store) } >
