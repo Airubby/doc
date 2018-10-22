@@ -10,3 +10,28 @@ $(".parent").scroll(function () { //父
 //数组去重 
 var arr=['4','4'] 
 var arr=Array.from(new Set(arr))
+
+//生成树形JSON
+function getJsonTree(dataJson,parentId){
+    var itemArr=[];
+    for(var i=0;i<dataJson.length;i++){ 
+        var node=dataJson[i];
+        if(node.pid==parentId){ 
+            var newNode=node;
+            newNode.children=getJsonTree(dataJson,node.id);
+            itemArr.push(newNode);              
+        }
+    }
+    return itemArr;
+}
+//树形JSon生成list  自己定义个menuArr全局变量
+// function spread(menus) {
+//     for (var i=0; i < menus.length; i++ ) {
+//         menu = menus[i]
+//         if (menu.children) {
+//             spread(menu.children)
+//             delete menu.children
+//         }
+//         menuArr.push(menu)
+//     }
+// }
