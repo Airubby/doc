@@ -36,6 +36,13 @@ export default {
                 this.init();
             })
         },
+        //监听路由变化
+        $route: function(val){
+            this.$nextTick(() => {
+                this.Init();
+            })
+        },
+        
    },
 
 }
