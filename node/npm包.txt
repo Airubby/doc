@@ -22,4 +22,7 @@ jQuery Jcrop 图片裁剪
 
 
 package包制作发布npm publish
-npm publish前先npm adduser  填写npmjs上的账号信息然后npm publish
+npm publish前先npm adduser  填写npmjs上的账号信息然后npm publish 或者npm login
+
+npm login
+Username: airubby 只能小写
