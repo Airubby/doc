@@ -8,6 +8,10 @@ newArray = oldArray.slice(); //slice会clone返回一个新数组
         })
     },
 if (this && this._isDestroyed) {组件摧毁后执行}  
+<el-scrollbar style="height:400px;" class="loncom_scrollbar"></el-scrollbar>
+.loncom_scrollbar .el-scrollbar__wrap{
+  overflow-x: hidden !important;
+}
 
 打包后的js,css不带hash值设置：build/webpack.prod.conf.js
 导出：
