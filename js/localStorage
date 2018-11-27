@@ -6,4 +6,6 @@ if(localStorage.loginInfo){
   loginInfo=JSON.parse(localStorage.loginInfo);
 }
 
+sessionStorage.setItem("listId", item.id);
+this.id=sessionStorage.getItem("listId");
 sessionStorage.removeItem("zt_nav"); 清除zt_nav  这个
