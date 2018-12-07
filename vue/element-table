@@ -1,5 +1,6 @@
 <el-search-table-pagination type="local" class="loncom_table_form loncom_position_relative loncom_mb50" 
     @selection-change="selectionChange"
+    @resultData="resultInfo"
     :show-pagination="false" border :data="table_info" :columns="table_info_columns" :formOptions="table_forms">
     <el-table-column slot="prepend" type="selection"></el-table-column>
     <el-table-column slot="prepend" type="index" label="序号" width="50"></el-table-column>
@@ -30,7 +31,13 @@
 selectionChange:function(val){
     console.log(val)
 },
-
+resultInfo返回信息:{
+    code: 200
+    data: []
+    pageIndex: 1
+    pageSize: 10
+    total: 3
+}
 
 data:{
     table_forms: {
