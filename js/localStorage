@@ -9,3 +9,14 @@ if(localStorage.loginInfo){
 sessionStorage.setItem("listId", item.id);
 this.id=sessionStorage.getItem("listId");
 sessionStorage.removeItem("zt_nav"); 清除zt_nav  这个
+
+设置cookie
+var date=new Date();
+var expiresDays=10;
+//将date设置为10天以后的时间
+date.setTime(date.getTime()+expiresDays*24*3600*1000);
+//将userId和userName两个cookie设置为10天后过期
+console.log(this.user_info)
+document.cookie=" roleid="+this.user_info.roleid+"; expires="+date.toGMTString();
+document.cookie=" username="+this.user_info.userid+"; expires="+date.toGMTString();
+document.cookie=" sid="+this.user_info.sid+"; expires="+date.toGMTString();
