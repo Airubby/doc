@@ -14,6 +14,12 @@ html {
 <p><span>姓名：</span>123</p><p><span>客户编号：</span>123</p>
 span{width:100px;display: inline-block;text-align-last: justify;}
 
+/***********内容宽度不固定居中显示***************/
+.divbox{width: fit-content; margin:0 auto;}
+
+/***********单行文本超出...***************/
+.divbox{overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+
 bg {
     /*背景挨着鼠标放上去就有滑动效果  bg:hover*/
     -webkit-transition: all 0.2s ease-in-out;
