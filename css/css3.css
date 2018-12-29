@@ -10,7 +10,9 @@
 html {
     font-size: 62.5%;
 }
-
+/***********文字两端对齐***************/
+<p><span>姓名：</span>123</p><p><span>客户编号：</span>123</p>
+span{width:100px;display: inline-block;text-align-last: justify;}
 
 bg {
     /*背景挨着鼠标放上去就有滑动效果  bg:hover*/
