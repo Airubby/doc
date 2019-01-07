@@ -13,6 +13,16 @@ if (this && this._isDestroyed) {组件摧毁后执行}
   overflow-x: hidden !important;
 }
 
+//enter登录
+<el-input type="password" v-model.trim="user.psword" ref="psinput" placeholder="请输入登录密码" @keyup.native="keyLogin($event)"></el-input>
+<el-button type="primary" @click="loginIn()" @keydown="keyLogin($event)">登录</el-button>
+keyLogin:function(ev,userName){
+if(ev.keyCode == 13){
+        this.loginIn();
+}
+},
+this.$refs.psinput.focus();  //登录失败获取焦点
+
 打包后的js,css不带hash值设置：build/webpack.prod.conf.js
 导出：
 Exportp:function(){
