@@ -103,6 +103,26 @@ export default {
             </span>
             );
         },
+        removeEnergyTree(node, data) {
+            this.$confirm('此操作将永久删除该树形, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+                }).then(() => {
+                    var parmt={};
+                    parmt.energydev={};
+                    parmt.energydev.id=data.id;
+                  this.$api.get('/energy/deleteenergy', {"model":JSON.stringify(parmt)}, r => {
+                          if(r.err_code=="0"){
+                                const parent = node.parent;
+                                const children = parent.data.children || parent.data;
+                                const index = children.findIndex(d => d.id === data.id);
+                                children.splice(index, 1);
+                          }
+                  });
+                })
+
+        },
     submitInfo:function(formName){
        this.$refs[formName].validate((valid) => {
         if(valid){ //验证通过
