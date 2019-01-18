@@ -17,8 +17,6 @@
         show-checkbox
         :props="defaultProps"
         accordion
-        :getCheckedNodes="getCheckedNodes"
-        :setCheckedNodes="setCheckNodes"
         @check-change="changeTree"
          @node-click="handleNodeClick"
         :render-content="renderEnergy"
@@ -32,7 +30,7 @@
   </el-form>
 </template>
 
-<style>
+<style scoped>
 //这个得写全局才行
 .loncom_tree_list{
   width: -webkit-calc(100% - 24px);
@@ -55,7 +53,7 @@ export default {
     return{
       value6:'',
       value7:'',
-      access_info:{   // 这个树形初始化时必须得在data属性中存在，不然watch监听不到
+      access_info:{   
            listtree:'',   
            list:[],
            obj{
@@ -64,6 +62,7 @@ export default {
        },
        //树形
       access_data: [],
+      get_list:[],  //获取的勾选项id
       formRules:{
             'obj.name':[
                 { required: true, message: '请填写', trigger: 'blur' },
@@ -76,8 +75,12 @@ export default {
   },
   methods:{
     changeTree:function(){
-          this.access_info.list=this.$refs.tree.getCheckedNodes(true);
+          this.get_list=this.$refs.tree.getCheckedKeys(true);
      },
+     //设置树形勾选的,编辑时获取详情后调用设置勾选的项
+     setCheckedKeys:function() {
+         this.$refs.tree.setCheckedKeys(this.get_list);
+      },
      selsetchangeTree:function(){
           let arrnode=this.$refs.tree.getCheckedNodes();
           let name=[];
@@ -86,10 +89,6 @@ export default {
             name.push(arrnode[i].label);
           }
           this.value7=name.toString();
-     },
-     //获取树形勾选的
-     getCheckedNodes:function(){
-
      },
      handleNodeClick(data,node) {},
      renderEnergy(h, { node, data, store }) {
@@ -132,9 +131,9 @@ export default {
   },
   watch:{
         //监听树形数据变化
-        'access_info.list':function(val,oldval){
+        get_list:function(val){
             if(val.length>0){
-                this.access_info.listtree=val[0].name;
+                this.access_info.listtree=true;
             }else{
                 this.access_info.listtree='';
             }
