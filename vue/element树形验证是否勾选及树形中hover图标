@@ -21,6 +21,9 @@
          @node-click="handleNodeClick"
         :render-content="renderEnergy"
         :expand-on-click-node="true"
+        <!--以下是懒加载-->
+        lazy
+        :load="transferLoadNode"
         >
         <!--不用:render-content="renderEnergy"这种方法，直接用下面的方法-->
         <span class="loncom_tree_list" :class="{'loncom_treehidebox':data.type=='1'}" slot-scope="{ node, data }">
@@ -82,6 +85,23 @@ export default {
     }
   },
   methods:{
+      //懒加载
+      transferLoadNode:function(node,resolve){
+            if (node.level === 0) {
+                return resolve([{ name: '数据机房',id:'1' ,pid:'0',type:'jifang'}]);
+            }else{
+                if(node.data.map&&node.data.map.action){
+                    this.$api.get(node.data.map.action, {"type":node.data.map.type,"id":node.data.id}, r => {
+                        if(r.err_code=="0"){
+                            var res=resolve(r.data);
+                            return res;
+                        }
+                    }); 
+                }else{
+                    return resolve([])
+                }
+            }
+        },
       getTree:function(){
         this.$api.get('/tree', {}, r => {
             console.log(r)
