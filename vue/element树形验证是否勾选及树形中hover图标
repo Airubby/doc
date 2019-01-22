@@ -23,7 +23,7 @@
         :expand-on-click-node="true"
         >
         <!--不用:render-content="renderEnergy"这种方法，直接用下面的方法-->
-        <span class="loncom_tree_list" slot-scope="{ node, data }">
+        <span class="loncom_tree_list" :class="{'loncom_treehidebox':data.type=='1'}" slot-scope="{ node, data }">
             <em class="loncom_fl loncom_mr10" @click="()=>getaccessstatu(node, data)">{{node.label}}</em>
             <em class="loncom_fr loncom_tree_listbtn">
                 <i class="el-icon-edit loncom_mr5" @click="()=>editControllerTree(node,data)"></i>
@@ -82,6 +82,21 @@ export default {
     }
   },
   methods:{
+      getTree:function(){
+        this.$api.get('/tree', {}, r => {
+            console.log(r)
+           if(r.err_code=="0"){
+                this.tree_data=r.data;
+                //根据需求 隐藏勾选框
+                this.$nextTick(function(){
+                    let tree=this.$el.querySelectorAll('.loncom_treehidebox');
+                    tree.forEach(function(item,index){
+                        item.parentNode.querySelector(".el-checkbox").style.display="none";
+                    })
+                })
+           }
+        });
+      },
     changeTree:function(){
           this.get_list=this.$refs.tree.getCheckedKeys(true);
      },
