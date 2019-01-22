@@ -97,9 +97,18 @@ export default {
            }
         });
       },
-    changeTree:function(){
-          this.get_list=this.$refs.tree.getCheckedKeys(true);
-     },
+     changeTree:function(data,checked){
+          //设置单选
+            if(this.$refs.tree.getCheckedKeys(true).length%2===0){
+                if(checked){
+                    this.$refs.tree.setCheckedKeys([]);
+                    this.$refs.tree.setCheckedKeys([data.id]);
+                }else{
+                    this.$refs.tree.setCheckedKeys([]);
+                }        
+            }
+            this.get_list=this.$refs.tree.getCheckedKeys(true);
+        },
      //设置树形勾选的,编辑时获取详情后调用设置勾选的项
      setCheckedKeys:function() {
          this.$refs.tree.setCheckedKeys(this.get_list);
