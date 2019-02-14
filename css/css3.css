@@ -588,3 +588,36 @@ em{
 ::-webkit-progress-value {
     background: #0096BA;
 }
+//box去一个角的内阴影效果
+<div class="test"></div>
+.test{
+    margin:30px;
+    width: 300px;
+    height: 100px;
+    box-shadow: inset 0px 0px 20px #4963bd;
+    position: relative;
+    overflow: hidden;
+}
+.test:before{
+    position: absolute;
+    content: "";
+    left: -1px;
+    top: -1px;
+    width: 0;
+    height: 0;
+    border-top: 30px solid #161a37;
+    border-right: 30px solid transparent;
+}
+.test:after{
+    content: "";
+    width: 70px;
+    height: 9px;
+    position: absolute;
+    left: -17px;
+    top: 11px;
+    box-shadow: inset 0px 3px 10px #3d55a9;
+    transform: rotate(-45deg);
+}
+
+
+
