@@ -20,6 +20,24 @@ span{width:100px;display: inline-block;text-align-last: justify;}
 /***********单行文本超出...***************/
 .divbox{overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
 
+/***********自适应斑马线进度条***************/
+<div class="loncom-progress">
+   <div class="loncom-progress-con" style="width: 90%;"></div>
+</div>
+.loncom-progress{
+    width: 100%;
+    height: 11px;
+    background: #021645;
+    display: inline-block;
+    .loncom-progress-con{
+	height:100%;
+	background: linear-gradient(to right,#008EFF 50%, transparent 0%);
+	background-size: 4px 100%;
+    }
+}
+
+
+
 bg {
     /*背景挨着鼠标放上去就有滑动效果  bg:hover*/
     -webkit-transition: all 0.2s ease-in-out;
