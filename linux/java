@@ -1,0 +1,14 @@
+JDK环境变量配置
+1.用文本编辑器打开/etc/profile文件，在profile文件末尾加入： 
+export JAVA_HOME=/usr/jdk1.8.0_201   //JAVA_HOME设置jdk的路径 
+export PATH=$JAVA_HOME/bin:$PATH 
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar 
+2.给权限 chmod +x /usr/jdk1.8.0_201/bin/java
+
+
+
+用命令chmod 修改一下Tomcat的bin目录下的.sh权限就可以启动tomcat了
+如chmod u+x *.sh
+
+启动tomcat：./catalina.sh run          ./startup.sh
+杀死tomcat：killall -9 java
