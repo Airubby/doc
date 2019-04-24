@@ -1,0 +1,30 @@
+说明：
+decimal(P,D) P是表示有效数字数的精度,P范围为1~65；D是表示小数点后的位数,D的范围是0~30
+cast(p as D)
+
+1、求多表时间间隔段的数据总和：
+select cast(sum(a.allvalue) as decimal(10,2)) as allvalue from
+(
+select * from rpt11_302 where time>= '2019-04-20 00:00:00' and time< '2019-04-24 23:59:59' 
+ UNION 
+select * from rpt21_302 where time>= '2019-04-20 00:00:00' and time< '2019-04-24 23:59:59' 
+) a
+
+2、求多表时间间隔段的根据某些字段分组再根据某字段的和排序：
+select mgrobjid,pointid,cast(sum(a.allvalue) as decimal(10,2)) as allvalue, time from
+(
+select * from rpt11_302 where time>= '2019-04-20 00:00:00' and time< '2019-04-24 23:59:59' 
+ UNION 
+select * from rpt21_302 where time>= '2019-04-20 00:00:00' and time< '2019-04-24 23:59:59' 
+) a group by a.mgrobjid,a.pointid ORDER BY allvalue DESC LIMIT 10
+
+3、求多表时间间隔段的以天为间隔的每天的数据总和：（如果以月为间隔的数据总和将'%Y-%m-%d'改为'%Y-%m'）
+select time,sum(allvalue) as allvalue from
+(
+select DATE_FORMAT(a.time,'%Y-%m-%d') as time,sum(allvalue) as allvalue from
+(
+select * from rpt11_302 where time>= '2019-04-20 00:00:00' and time< '2019-04-24 23:59:59' 
+ UNION 
+select * from rpt21_302 where time>= '2019-04-20 00:00:00' and time< '2019-04-24 23:59:59' 
+) a group by a.time
+) b group by b.time
