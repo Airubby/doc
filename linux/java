@@ -12,3 +12,11 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
 启动tomcat：./catalina.sh run          ./startup.sh
 杀死tomcat：killall -9 java
+
+
+
+
+启动问题修改：
+jdk1.8.0_111\jre\lib\security\java.security
+securerandom.source=file:/dev/random
+修改为：securerandom.source=file:/dev/urandom 或者 securerandom.source=file:/dev/./urandom
