@@ -1,6 +1,7 @@
 说明：
 decimal(P,D) P是表示有效数字数的精度,P范围为1~65；D是表示小数点后的位数,D的范围是0~30
-cast(p as D)
+cast(p as D)  //类型转换，一般讲P(VARCHAR型或其它)转成D(数字型或其它类型)
+CONVERT(P,D)  //类型转换，一般讲P(VARCHAR型或其它)转成D(数字型或其它类型)
 
 1、求多表时间间隔段的数据总和：
 select cast(sum(a.allvalue) as decimal(10,2)) as allvalue from
@@ -28,3 +29,16 @@ select * from rpt11_302 where time>= '2019-04-20 00:00:00' and time< '2019-04-24
 select * from rpt21_302 where time>= '2019-04-20 00:00:00' and time< '2019-04-24 23:59:59' 
 ) a group by a.time
 ) b group by b.time
+
+4、删除表中的某些数据
+DELETE FROM hisdev20190327 WHERE time < '2019-04-24 23:59:59' 
+
+5、删除表
+drop table hisdev20190327
+
+6、删除表中的所有数据
+truncate table hisdev20190327
+
+
+
+
