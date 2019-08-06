@@ -32,13 +32,22 @@ select * from rpt21_302 where time>= '2019-04-20 00:00:00' and time< '2019-04-24
 ) a group by a.time
 ) b group by b.time
 
-4、删除表中的某些数据
+4、同一表时间间隔段的根据某些字段分组求和：
+select cast(sum(a.allvalue) as decimal(10,2)) as allvalue from
+(
+select * from HISDEV20190704 where time>= '2019-04-20 00:00:00' and time< '2019-04-24 23:59:59' and 
+(mgrobjid = '8091' AND pointid = '3050618001')
+or
+(mgrobjid = '80101' AND pointid = '3050618002')
+) a
+
+a、删除表中的某些数据
 DELETE FROM hisdev20190327 WHERE time < '2019-04-24 23:59:59' 
 
-5、删除表
+b、删除表
 drop table hisdev20190327
 
-6、删除表中的所有数据
+c、删除表中的所有数据
 truncate table hisdev20190327
 
 
