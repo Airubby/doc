@@ -41,6 +41,10 @@ or
 (mgrobjid = '80101' AND pointid = '3050618002')
 ) a
 
+5、两表关联查询
+   内连接查询：SELECT a.useelec, b.* from m_roomelec a INNER JOIN m_roominfo b on a.roomid=b.roomid
+   左外连接查询：SELECT a.useelec, b.* from m_roomelec a LEFT OUTER JOIN m_roominfo b on a.roomid=b.roomid
+
 a、删除表中的某些数据
 DELETE FROM hisdev20190327 WHERE time < '2019-04-24 23:59:59' 
 
