@@ -47,6 +47,15 @@ span{width:100px;display: inline-block;text-align-last: justify;}
     position: relative;
     background: #000;
 }
+//如果.loncom-pubcon1的高度是随父元素高度变化的
+.loncom-pubcon1{
+	width: 400px;
+	height: 100%;
+	position:absolute;
+	top: 0;
+    	left: 0;
+	overflow:auto;
+}
 .loncom-pubcon1 img{
     position: absolute;
     top: 0;
