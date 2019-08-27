@@ -45,6 +45,18 @@ or
    内连接查询：SELECT a.useelec, b.* from m_roomelec a INNER JOIN m_roominfo b on a.roomid=b.roomid
    左外连接查询：SELECT a.useelec, b.* from m_roomelec a LEFT OUTER JOIN m_roominfo b on a.roomid=b.roomid
 
+6、多表中的字段列抽取到一张表中
+select a.time as TIME,
+MAX((case a.`NAME` WHEN '1' THEN a.`VALUE` else 0 end )) as value1,
+MAX((case a.`NAME` WHEN '2' THEN a.`VALUE` else 0 end )) as value2 from
+(
+ select '1' as NAME,ziduanming as VALUE, time from rpt1101 
+ union
+ select '2' as NAME,ziduanming as VALUE, time from rpt1102 
+) as a
+where a.time>'2019-08-08:00:00:00' and a.time<'2019-08-09:00:00:00'
+group by time
+
 a、删除表中的某些数据
 DELETE FROM hisdev20190327 WHERE time < '2019-04-24 23:59:59' 
 
