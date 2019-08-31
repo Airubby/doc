@@ -26,3 +26,15 @@ npm publish前先npm adduser  填写npmjs上的账号信息然后npm publish 或
 
 npm login
 Username: airubby 只能小写
+
+如果报4048错：
+先删除
+C:\Users\Administrator\AppData\Roaming\npm-cache\*
+C:\Users\Administrator\AppData\Roaming\npm
+然后执行
+npm install -g
+
+如果是镜像问题报4048错误的话：
+npm adduser --registry http://registry.npmjs.org
+npm publish --registry http://registry.npmjs.org
+
