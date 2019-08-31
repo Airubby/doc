@@ -22,6 +22,8 @@ jQuery Jcrop 图片裁剪
 
 npm install 报错执行：npm config set strict-ssl false
 
+设置npm registry：npm config set registry http://registry.npmjs.org 
+
 package包制作发布npm publish
 npm publish前先npm adduser  填写npmjs上的账号信息然后npm publish 或者npm login
 
