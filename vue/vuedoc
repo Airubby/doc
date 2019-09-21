@@ -24,48 +24,36 @@ if(ev.keyCode == 13){
 this.$refs.psinput.focus();  //登录失败获取焦点
 
 打包后的js,css不带hash值设置：build/webpack.prod.conf.js
-导出：
-Exportp:function(){
-        //一、
-      let downloadElement = document.createElement('a')
-      let href=window.document.location.origin+ "/export/hisalarm?level="+level;
-      downloadElement.href = href
-      document.body.appendChild(downloadElement)
-      downloadElement.click()
-      document.body.removeChild(downloadElement) // 下载完成移除元素
-      window.URL.revokeObjectURL(href) // 释放掉blob对象
-       //二、
-       let url = '/iSmacSite'+this.form_info.list[i].url;
-            let link = document.createElement('a')
-            link.style.display = 'none'
-            link.href = url
-            link.setAttribute('download', this.form_info.list[i].name)
 
-            document.body.appendChild(link)
-            link.click();
-            window.URL.revokeObjectURL(link.href); // 释放URL 对象
-            document.body.removeChild(link);
-                    
-       //三、    
-      this.$api.get('/pointTemplate/pointTemplateExport', {typeTempId:this.dialogInfo.typeTempId}, r => {
-          //下面的方法引入import XLSX from 'xlsx';  $ npm install xlsx      r是数据流
-          const blob = new Blob([r], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8' })
-          const downloadElement = document.createElement('a')
-          const href = window.URL.createObjectURL(blob)
-          downloadElement.href = href
-          downloadElement.download = 'rate.xlsx'
-          document.body.appendChild(downloadElement)
-          downloadElement.click()
-          document.body.removeChild(downloadElement) // 下载完成移除元素
-          window.URL.revokeObjectURL(href) // 释放掉blob对象
-          
-          
-      }); 
+导出下载：
+function exportFile(fileUrl,name){
+    //fileUrl 是给的流文件接口地址:"/export/hisalarm?level="+level; name:导出显示的名称
+    let link = document.createElement('a')
+    link.style.display = 'none'
+    link.href = fileUrl
+    link.setAttribute('download', name)
 
- },
-
-
-
+    document.body.appendChild(link)
+    link.click();
+    window.URL.revokeObjectURL(link.href); // 释放URL 对象
+    document.body.removeChild(link);// 下载完成移除元素
+}
+function downFile(fileUrl){
+    //fileUrl 是给的文件路径地址:/static/test.pdf
+    axios.post(fileUrl, {
+        responseType: 'blob', //重要
+    }).then(response => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        let fname = fileUrl.split("/").length>1?fileUrl.split("/")[fileUrl.split("/").length-1]:fileUrl;
+        link.href = url;
+        link.setAttribute('download', fname);
+        document.body.appendChild(link);
+        link.click();
+        window.URL.revokeObjectURL(link.href); // 释放URL 对象
+        document.body.removeChild(link);// 下载完成移除元素
+    })
+}
 
 pickerOptions: {
       shortcuts: [{
