@@ -4,6 +4,7 @@ cast(p as D)  //类型转换，一般讲P(VARCHAR型或其它)转成D(数字型�
 CONVERT(P,D)  //类型转换，一般讲P(VARCHAR型或其它)转成D(数字型或其它类型)
 COALESCE(f,n) f存在就为f,不存在就为n
 COALESCE(MAX(convert(value,decimal(10,2))),'0')  将字符串value值转为2位小数数值型
+ifnull(sum(convert(value,DECIMAL(10,2))),0)  如果为null赋值为0
 
 1、求多表时间间隔段的数据总和：
 select cast(sum(a.allvalue) as decimal(10,2)) as allvalue from
