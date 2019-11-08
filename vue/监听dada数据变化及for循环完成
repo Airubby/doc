@@ -27,7 +27,8 @@ export default {
           handler:function(val,oldval){
               console.log('数据变化了')
           },
-          deep: true
+          deep: true,  //深度监听
+          immediate: false // false在绑定的时候不执行，true在绑定的时候就执行
         }
         //navList是从后台获取的菜单在页面for循环渲染
         navList:function(val,oldval){
