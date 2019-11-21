@@ -1,2 +1,8 @@
 bootstrap按钮颜色生成     blog.koalite.com/bbg/
 字体图标：https://icomoon.io/
+
+字体图标转base64编码字体：https://transfonter.org/
+说明：
+点击“Add Fonts"按钮，上传字体图标文件：fonts/icomoon.ttf；
+将Family support，Base64 encode两项设置为On，Formats一栏可只勾选woff2(生成文件的字节数少)；
+点击”Convert“按钮后，会在下面出现一个download链接
