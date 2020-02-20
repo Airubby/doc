@@ -1,0 +1,21 @@
+网络适配器设置：
+1.自定义-》VMnet8
+2.点击VMware主界面导航 编辑 ——> 虚拟网络编辑器 后打开设置：NAT模式 和 勾选将主机虚拟适配器连接到此网络(V)两个即可
+3.vi /etc/sysconfig/network-scripts/ifcfg-XXX 文件中，XXX为设备编号。在CentOS7.0虚拟机中，网卡 ifcfg-ens33。配置为下：
+  DEVICE=ens33
+  ONBOOT=yes
+  IPADDR=192.168.16.8
+  NETMASK=255.255.255.0
+  GATEWAY=192.168.16.2
+  DNS1=103.86.96.100
+  DNS2=114.114.114.114
+  DNS3=8.8.8.8
+  
+  BOOTPROTO 要设为static；
+  IPADDR 的地址其网段要和VMnet8的网段一致，选择自己喜欢的地址就行
+  GATEWAY（网关）与VMnet8一致及在上面2中点击NAT设置弹窗中的网关IP
+  ONBOOT 修改为yes
+  DNS 的设置要和物理主机的DNS地址一致，有几个就设几个按照DNS1、DNS2…设置即可。
+  
+  修改完后按 Esc 退出  再出入命令 :wq  再按Enter即可
+4. sudo systemctl restart network   重启网卡  sudo systemctl enable network  开机启动网卡
