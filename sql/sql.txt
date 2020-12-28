@@ -43,7 +43,8 @@ or
 ) a
 
 5、两表关联查询
-   内连接查询：SELECT a.useelec, b.* from m_roomelec a INNER JOIN m_roominfo b on a.roomid=b.roomid
+   内连接查询(只连接匹配的行)：SELECT a.useelec, b.* from m_roomelec a INNER JOIN m_roominfo b on a.roomid=b.roomid
+   左连接查询(包含左边表的全部行;不管右边的表中是否存在与它们匹配的行)：SELECT a.*, b.* from m_roomelec a LEFT JOIN m_roominfo b on a.roomid=b.roomid
    左外连接查询：SELECT a.useelec, b.* from m_roomelec a LEFT OUTER JOIN m_roominfo b on a.roomid=b.roomid
    SELECT a.name,count(*) as count from table1 a,table2 b WHERE a.type=b.state GROUP BY b.state
    
