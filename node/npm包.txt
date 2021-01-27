@@ -1,3 +1,13 @@
+设置npm registry：npm config set registry http://registry.npmjs.org 
+npm publish前先npm adduser  填写npmjs上的账号信息然后npm publish 或者npm login
+npm login
+Username: airubby 只能小写
+
+package包制作发布npm publish
+
+
+
+
 表单,表单中含有文件上传：formidable
 日期格式：silly-datetime
 node fs扩展模块：fs-extra
@@ -22,13 +32,7 @@ jQuery Jcrop 图片裁剪
 
 npm install 报错执行：npm config set strict-ssl false
 
-设置npm registry：npm config set registry http://registry.npmjs.org 
 
-package包制作发布npm publish
-npm publish前先npm adduser  填写npmjs上的账号信息然后npm publish 或者npm login
-
-npm login
-Username: airubby 只能小写
 
 如果报4048错：
 先删除
